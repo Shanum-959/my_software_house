@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+<p>This is your account dashboard.</p>
+
+<ul>
+    <li><a href="{% url 'accounts:profile' %}">My Profile</a></li>
+    <li><a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
+    <li><a href="/portal/">Client Portal</a></li>
+    <li><a href="/quotes/">My Quotes</a></li>
+    <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+</ul>
+{% endblock %}
