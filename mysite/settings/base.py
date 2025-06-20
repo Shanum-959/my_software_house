@@ -1,21 +1,22 @@
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Move BASE_DIR up one more level so it points at your project root
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = 'your-secret-key-here'
-
 DEBUG = False
-
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    # Django built-ins
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # your custom apps
+
+    # Your apps
     'core',
     'services',
     'portfolio',
@@ -32,8 +33,8 @@ INSTALLED_APPS = [
     'knowledge_base',
     'analytics',
     'localization',
+    'assets',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +51,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # Now points to core/templates at the project root
         'DIRS': [BASE_DIR / 'core' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -73,18 +75,10 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 LANGUAGE_CODE = 'en-us'
@@ -92,9 +86,15 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
-STATICFILES_DIRS = [BASE_DIR / 'core' / 'static']
-MEDIA_ROOT = BASE_DIR / "media"
+# Static files (CSS, JS, images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'assets' / 'static',  # Your centralized assets app
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media uploads
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
