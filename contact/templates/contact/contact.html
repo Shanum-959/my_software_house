@@ -1,6 +1,9 @@
 {% extends 'core/base.html' %}
-
 {% block content %}
-<h2>Welcome to contact Page</h2>
-<p>This is the services.html template.</p>
+<h2>Contact Us</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send Message</button>
+</form>
 {% endblock %}

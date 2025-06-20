@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Service
 
-def services_list(request):
-    return render(request, "services/services.html")
+def service_list(request):
+    services = Service.objects.all()
+    return render(request, 'services/services.html', {'services': services})

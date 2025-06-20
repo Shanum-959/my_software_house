@@ -1,6 +1,30 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Welcome to Services Page</h2>
-<p>This is the services.html template.</p>
+<div class="container">
+    <h2 class="text-2xl font-bold mb-4">Our Services</h2>
+    
+<div class="services-list">
+    {% for service in services %}
+        <div class="service-card">
+            <!-- Icon (if using FontAwesome class stored in DB) -->
+            <i class="{{ service.icon }}"></i>
+
+            <!-- Title -->
+            <h3>{{ service.title }}</h3>
+
+            <!-- Description -->
+            <p>{{ service.description }}</p>
+
+            <!-- Optional image -->
+            {% if service.image %}
+                <img src="{{ service.image.url }}" alt="{{ service.title }}">
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+       
+</div>
 {% endblock %}
