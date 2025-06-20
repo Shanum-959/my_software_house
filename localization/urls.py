@@ -4,5 +4,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='localization-home'),
+    path('', views.localization_list, name='localization-home'),
 ]

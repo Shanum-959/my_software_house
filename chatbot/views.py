@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("Welcome to the Chatbot page!")
+def chatbot(request):
+    return render(request, "chatbot/chatbot.html")

@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("Welcome to the Clientportal page!")
+def client_list(request):
+    return render(request, "client_portal/client_portal.html")

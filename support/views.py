@@ -1,8 +1,4 @@
-#from django.shortcuts import render
-#def index(request):
-    #return render(request, 'services/index.html')
-# Create your views here.
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("Welcome to the Support page!")
+def support_list(request):
+    return render(request, "portfolio/portfolio.html")

@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"></head>
 <body>
     <header>
-        <h1>Welcome to My Software House</h1>
+        <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'services:services_home' %}">Services</a></li>
+            <li><a href="{% url 'portfolio:portfolio_home' %}">Portfolio</a></li>
+            <li><a href="{% url 'blog:blog_home' %}">Blog</a></li>
+            <li><a href="{% url 'contact:contact_home' %}">Contact</a></li>
+        </ul>
+    </nav>
     </header>
 
     <main>

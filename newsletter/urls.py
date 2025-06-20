@@ -4,5 +4,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='newsletter-home'),
+    path('', views.newsletter_list, name='newsletter-home'),
 ]

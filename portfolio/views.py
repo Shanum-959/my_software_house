@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("Welcome to the portfolio page!")
+def portfolio_list(request):
+    return render(request, "portfolio/portfolio.html")

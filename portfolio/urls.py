@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+app_name = 'portfolio'
 urlpatterns = [
-    path('', views.index, name='portfolio_index'),
+    path('', views.portfolio_list, name='portfolio_home'),
 ]

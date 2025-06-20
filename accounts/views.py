@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("Welcome to the Accounts page!")
+def accounts(request):
+    return render(request, "accounts/account.html")
