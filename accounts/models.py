@@ -5,11 +5,16 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
-    phone_number = models.CharField(max_length=15, blank=True)
+    profile_picture = models.ImageField(
+        upload_to='profile_pics/',
+        blank=True,
+        null=True,
+        default='profile_pics/default.png'  # This image must exist in media/profile_pics/
+    )
+    phone_number = models.CharField(max_length=15)
     bio = models.TextField(blank=True)
-    location = models.CharField(max_length=100, blank=True, null=True)
-    birth_date = models.DateField(blank=True, null=True)
+    location = models.CharField(max_length=100)
+    
 
     def __str__(self):
         return self.user.username

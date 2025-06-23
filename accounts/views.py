@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm  # You will need to create this form
+from .forms import CompleteProfileForm
 
 # User signup
 def signup_view(request):
@@ -11,11 +12,23 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             # Create a blank profile for the new user
-            UserProfile.objects.create(user=user)
-            return redirect('accounts:login')
+           # UserProfile.objects.create(user=user)
+            return redirect('accounts:complete_profile')
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
+
+@login_required
+def complete_profile_view(request):
+    profile = request.user.userprofile
+    if request.method == 'POST':
+        form = CompleteProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('accounts:accounts-home')
+    else:
+        form = CompleteProfileForm(instance=profile)
+    return render(request, 'accounts/complete_profile.html', {'form': form})
 
 
 # View profile
@@ -43,3 +56,5 @@ def edit_profile_view(request):
 @login_required
 def accounts(request):
     return render(request, 'accounts/accounts.html')
+
+    
