@@ -23,12 +23,12 @@ urlpatterns = [
     path('complete-profile/', views.complete_profile_view, name='complete_profile'),
 
 
-     path('password_reset/', auth_views.PasswordResetView.as_view(
+    path('password_reset/', auth_views.PasswordResetView.as_view(
         template_name='accounts/password_reset.html',
         success_url=reverse_lazy('accounts:password_reset_done'),
         email_template_name='accounts/password_reset_email.html',  # ✅ ye zaroori hai
     ), name='password_reset'),
-
+    
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(
         template_name='accounts/password_reset_done.html'
     ), name='password_reset_done'),

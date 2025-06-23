@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <!-- App-specific content here -->
+  <h2>My Projects</h2>
+  <ul>
+    {% for project in projects %}
+      <li><a href="{% url 'client_portal:project_detail' project.pk %}">{{ project.name }}</a> - {{ project.status }}</li>
+    {% empty %}
+      <li>No projects found.</li>
+    {% endfor %}
+  </ul>
 {% endblock %}
