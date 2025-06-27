@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Subscriber
 
-# Register your models here.
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = ('email', 'subscribed_at', 'confirmed')
+    list_filter = ('confirmed', 'subscribed_at')
+    search_fields = ('email',)

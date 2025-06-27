@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Your apps
+    'corsheaders',
     'core',
     'services',
     'portfolio',
@@ -26,6 +27,7 @@ INSTALLED_APPS = [
     'accounts',
     'quotes',
     'chatbot',
+    'rest_framework',
     'newsletter',
     'payments',
     'client_portal',
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -102,3 +105,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/accounts/'  # or use the URL pattern name if you're using reverse resolution
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_URL = '/accounts/login/'
+CORS_ALLOW_ALL_ORIGINS = True

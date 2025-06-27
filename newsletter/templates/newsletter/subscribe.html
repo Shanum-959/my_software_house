@@ -1,0 +1,47 @@
+<!-- newsletter/templates/newsletter/subscribe.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Subscribe to our Newsletter</h2>
+
+  <form id="newsletter-form">
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+
+  <p id="message" style="margin-top: 10px;"></p>
+
+  <script>
+    document.getElementById('newsletter-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = this;
+      const messageElement = document.getElementById('message');
+      const email = form.email.value;
+
+      try {
+        const response = await fetch('/newsletter/subscribe/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: email }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          messageElement.innerText = data.message;
+          messageElement.style.color = 'green';
+          form.reset();
+        } else {
+          messageElement.innerText = data.email ? data.email[0] : 'Subscription failed.';
+          messageElement.style.color = 'red';
+        }
+      } catch (error) {
+        messageElement.innerText = 'An error occurred. Please try again.';
+        messageElement.style.color = 'red';
+      }
+    });
+  </script>
+{% endblock %}

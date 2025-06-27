@@ -8,4 +8,18 @@
       <li>No projects found.</li>
     {% endfor %}
   </ul>
+
+  <h2>Your Ordered Services</h2>
+  {% if services %}
+    <ul>
+      {% for order in services %}
+        <li>{{ order.service.title }} – Ordered on {{ order.ordered_at|date:"M d, Y" }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You have not ordered any services yet.</p>
+    <a href="/services/">
+      <button style="margin-top: 10px;">Visit Services</button>
+    </a>
+  {% endif %}
 {% endblock %}

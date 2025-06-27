@@ -37,9 +37,38 @@
   <br><br>
 
   <!-- DEMO PROJECT LINK -->
-  {% if user.is_authenticated and user.project_set.first %}
-    <a href="{% url 'client_portal:project_detail' user.project_set.first.pk %}">
-      <button>View Sample Project Detail</button>
+  
+    <h2>Ordered Services</h2>
+{% if ordered_services %}
+  <ul>
+    {% for os in ordered_services %}
+      <li>{{ os.service.name }} – {{ os.ordered_at }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Abhi tak aap ne koi service order nahi ki.</p>
+  <p>You have not ordered any services yet.</p>
+    <a href="/services/">
+      <button style="margin-top: 10px;">Visit Services</button>
     </a>
-  {% endif %}
+{% endif %}
+
+<hr>
+
+<h2>Projects</h2>
+{% if projects %}
+  <ul>
+    {% for project in projects %}
+      <li>
+        <a href="{% url 'client_portal:project_detail' pk=project.pk %}">
+          {{ project.name }} ({{ project.status }})
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Abhi tak koi project assign nahi hua.</p>
+{% endif %}
+
+  
 {% endblock %}
