@@ -1,0 +1,153 @@
+/* === Footer Styling === */
+
+footer {
+  background-color: var(--primary);
+  color: var(--surface);
+}
+
+footer a {
+  color: var(--surface);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--alert) !important;
+}
+
+footer h5 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--surface);
+  margin-bottom: 1rem;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 24px;
+}
+
+footer .body {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 26px;
+  font-family: var(--font-body);
+}
+
+footer .input-group input[type="email"] {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 15px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid var(--border);
+  background-color: var(--neutral-bg);
+}
+
+footer .input-group .btn {
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  transition: background-color 0.3s ease;
+  font-family: var(--font-body);
+}
+
+footer .input-group .btn:hover {
+  background-color: var(--alert);
+  color: #fff;
+}
+
+footer .social-icons a {
+  font-size: 16px;
+  margin-right: 12px;
+  transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  color: var(--alert);
+}
+
+footer .border-top {
+  border-top: 1px solid var(--border);
+}
+
+footer .text-center p {
+  font-size: 14px;
+  color: var(--surface);
+  margin-bottom: 0;
+}
+
+
+/* === Responsive Fixes === */
+@media (max-width: 991px) {
+  footer h5 {
+    font-size: 17px;
+  }
+
+  footer ul li,
+  footer .body,
+  footer .text-center p {
+    font-size: 14px;
+  }
+
+  footer .input-group input[type="email"],
+  footer .input-group .btn {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer .col-md-3 {
+    margin-bottom: 2rem;
+  }
+
+  footer .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  footer .input-group input[type="email"],
+  footer .input-group .btn {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  footer .input-group .btn {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  footer h5 {
+    font-size: 16px;
+  }
+
+  footer ul li,
+  footer .body,
+  footer .text-center p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  footer .input-group input[type="email"] {
+    padding: 8px 12px;
+  }
+
+  footer .input-group .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  footer .social-icons a {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+
+  footer .navbar-brand img {
+    max-width: 150px;
+    height: auto;
+  }
+}

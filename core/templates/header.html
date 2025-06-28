@@ -1,0 +1,51 @@
+{% load static %}
+
+<!-- Bootstrap Header -->
+<header id="navbar" class="navbar navbar-expand-lg navbar-light  fixed-top">
+  <div class="container">
+    
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{% url 'home' %}">
+      <img src="{% static 'assets/images/exionix-logo.png' %}" alt="Logo" >
+    </a>
+
+    <!-- Toggle button for mobile view -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" 
+            aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse justify-content-center" id="navLinks">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link body" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link body" href="{% url 'services:services_home' %}">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link body" href="{% url 'portfolio:portfolio_home' %}">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link body" href="{% url 'blog:blog_home' %}">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link body" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link body" href="{% url 'careers:careers_home' %}">Careers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link body" href="{% url 'contact:contact_form' %}">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Login button -->
+    <div class="d-flex">
+      <a href="{% url 'accounts:login' %}" class="btn  btn-outline-primary">Login</a>
+    </div>
+
+  </div>
+</header>

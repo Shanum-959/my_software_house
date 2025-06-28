@@ -1,0 +1,141 @@
+/* Initial transparent state */
+#navbar.transparent {
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+#navbar.transparent .nav-link,
+#navbar.transparent .navbar-brand,
+#navbar.transparent .btn-outline-primary {
+  color: var(--text-dark) !important;
+  border-color: var(--text-dark);
+}
+
+#navbar.transparent .btn-outline-primary:hover {
+  background-color: var(--text-dark);
+  color: var(--surface);
+}
+
+/* Scroll active state */
+#navbar.scrolled {
+  background-color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+#navbar.scrolled .nav-link,
+#navbar.scrolled .navb ar-brand {
+  color: var(--surface) !important;
+}
+
+#navbar.scrolled .btn-outline-primary {
+  border-color: var(--alert);
+  color: var(--alert);
+}
+
+#navbar.scrolled .btn-outline-primary:hover {
+  background-color: var(--alert);
+  color: var(--surface);
+}
+
+
+
+/* === Header Styling === */
+#navbar {
+  background-color: var(--primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  height: auto;
+  padding: 0.5rem 1rem;
+}
+
+/* Logo brand */
+.navbar-brand img {
+  max-height: 50px;
+  width: auto;
+  color: black;
+}
+
+.navbar-brand:hover {
+  color: var(--alert);
+}
+
+/* Navigation links */
+.nav-link {
+  color: var(--surface) !important;
+  transition: color 0.3s ease;
+  margin-right: 1rem;
+}
+
+.nav-link:hover {
+  color: var(--alert) !important;
+}
+
+/* Login button */
+.btn.btn-outline-primary {
+  border-color: var(--alert);
+  color: var(--alert);
+  font-weight: 500;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.btn.btn-outline-primary:hover {
+  background-color: var(--alert);
+  color: var(--surface);
+  border-color: var(--alert);
+}
+
+
+/* === Responsive Fixes === */
+
+/* Medium Devices (Tablets ≤768px) */
+@media (max-width: 768px) {
+  #navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-brand img {
+    max-height: 45px;
+  }
+
+  .nav-link {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+  }
+
+  .btn.btn-outline-primary {
+    padding: 7px 18px;
+    font-size: 13px;
+  }
+}
+
+/* Small Devices (Mobile ≤576px) */
+@media (max-width: 576px) {
+  .navbar-brand img {
+    max-height: 40px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  .btn.btn-outline-primary {
+    padding: 6px 16px;
+    font-size: 12.5px;
+    width: 100%;
+  }
+
+  .navbar-collapse {
+    background-color: var(--primary);
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+}
