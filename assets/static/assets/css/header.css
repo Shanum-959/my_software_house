@@ -7,12 +7,12 @@
 #navbar.transparent .nav-link,
 #navbar.transparent .navbar-brand,
 #navbar.transparent .btn-outline-primary {
-  color: var(--text-dark) !important;
-  border-color: var(--text-dark);
+  color: var(--surface) !important;
+  border-color: var(--surface);
 }
 
 #navbar.transparent .btn-outline-primary:hover {
-  background-color: var(--text-dark);
+  background-color: var(--primary);
   color: var(--surface);
 }
 

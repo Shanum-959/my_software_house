@@ -1,12 +1,316 @@
 {% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
+{% block content %}
 
-</body>
-</html>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .hero {
+    background: url("{% static 'assets/images/hero.jpg' %}") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .hero-content {
+    z-index: 1;
+    position: relative;
+    max-width: 700px;
+    padding-left: 50px;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    margin: 20px 0;
+  }
+
+  .hero-btn {
+    background-color: #7039B0;
+    color: #fff;
+    padding: 12px 28px;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .hero-btn:hover {
+    background-color: #fff;
+    color: #7039B0;
+    border: 2px solid #7039B0;
+  }
+</style>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1>Powering Ideas Into Digital Realities</h1>
+    <p>We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
+    <a href="#contact" class="btn hero-btn">Start Conversation</a>
+  </div>
+</section>
+<!-- Trusted By Companies Section -->
+<section class="trusted-companies py-5 bg-light">
+  <div class="container">
+    <h5 class="text-center text-uppercase fw-bold mb-4" style="color: #7039B0;">Trusted by Innovative Brands</h5>
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <div class="d-flex gap-5 align-items-center justify-content-center">
+        <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="40">
+        <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="40">
+        <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="40">
+        <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="40">
+        <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="40">
+        <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="40">
+        <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="40">
+        <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="40">
+        <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="40">
+        <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="40">        
+      </div>
+    </marquee>
+  </div>
+</section>
+<!-- Our Services Section -->
+<section class="our-services py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4" style="color: #7039B0;">Our Services</h2>
+    <p class="mb-5 text-muted">We provide full-cycle digital solutions to turn your ideas into successful products.</p>
+    
+    <div class="row g-4">
+      <!-- Service 1 -->
+      <div class="col-md-4">
+        <div class="p-4 shadow-sm rounded bg-white h-100">
+          <div class="mb-3">
+            <i class="bi bi-code-slash" style="font-size: 2.5rem; color: #7039B0;"></i>
+          </div>
+          <h5 class="fw-semibold">Web Development</h5>
+          <p class="text-muted">Responsive and scalable web solutions using modern frameworks like Django, React, and more.</p>
+        </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="col-md-4">
+        <div class="p-4 shadow-sm rounded bg-white h-100">
+          <div class="mb-3">
+            <i class="bi bi-palette" style="font-size: 2.5rem; color: #7039B0;"></i>
+          </div>
+          <h5 class="fw-semibold">UI/UX Design</h5>
+          <p class="text-muted">Creative and user-focused design solutions that enhance digital experiences.</p>
+        </div>
+      </div>
+      <!-- Service 3 -->
+      <div class="col-md-4">
+        <div class="p-4 shadow-sm rounded bg-white h-100">
+          <div class="mb-3">
+            <i class="bi bi-bar-chart-line" style="font-size: 2.5rem; color: #7039B0;"></i>
+          </div>
+          <h5 class="fw-semibold">Digital Marketing</h5>
+          <p class="text-muted">Grow your reach with data-driven SEO, SMM, and content strategies tailored for results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Why Choose Exionix Tech -->
+<section class="why-choose-us py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4" style="color: #7039B0;">Why Choose Exionix Tech?</h2>
+    <p class="mb-5 text-muted">We're not just coders – we're your strategic tech partners committed to your success.</p>
+
+    <div class="row g-4">
+      <!-- Point 1 -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white shadow-sm rounded h-100">
+          <div class="fs-2 mb-2">🚀</div>
+          <h5 class="fw-semibold">Innovation Driven</h5>
+          <p class="text-muted">We thrive on creativity, bringing your boldest ideas to life with modern tech.</p>
+        </div>
+      </div>
+
+      <!-- Point 2 -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white shadow-sm rounded h-100">
+          <div class="fs-2 mb-2">⚙️</div>
+          <h5 class="fw-semibold">Full Stack Expertise</h5>
+          <p class="text-muted">From UI/UX to backend logic, we handle complete software product development.</p>
+        </div>
+      </div>
+
+      <!-- Point 3 -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white shadow-sm rounded h-100">
+          <div class="fs-2 mb-2">⏱️</div>
+          <h5 class="fw-semibold">On-Time Delivery</h5>
+          <p class="text-muted">We follow agile workflows to deliver high-quality work within tight deadlines.</p>
+        </div>
+      </div>
+
+      <!-- Point 4 -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white shadow-sm rounded h-100">
+          <div class="fs-2 mb-2">💬</div>
+          <h5 class="fw-semibold">Transparent Communication</h5>
+          <p class="text-muted">We keep you updated at every stage with clear reporting and honest feedback.</p>
+        </div>
+      </div>
+
+      <!-- Point 5 -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white shadow-sm rounded h-100">
+          <div class="fs-2 mb-2">🔐</div>
+          <h5 class="fw-semibold">Security First</h5>
+          <p class="text-muted">We follow best practices to ensure your data and application stay protected.</p>
+        </div>
+      </div>
+
+      <!-- Point 6 -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white shadow-sm rounded h-100">
+          <div class="fs-2 mb-2">📈</div>
+          <h5 class="fw-semibold">Scalable Solutions</h5>
+          <p class="text-muted">Our systems are built to grow with your business — today and tomorrow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Portfolio Section -->
+<section class="portfolio py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4" style="color: #7039B0;">Our Portfolio</h2>
+    <p class="mb-5 text-muted">Some of the recent projects we’ve crafted for startups, brands, and enterprises.</p>
+
+    <div class="row g-4">
+      <!-- Project 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="{% static 'assets/images/project1.jpg' %}" class="card-img-top" alt="Project 1">
+          <div class="card-body text-start">
+            <h5 class="card-title fw-semibold">E-commerce Platform</h5>
+            <p class="card-text text-muted">A scalable online shopping system built using Django and React.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="{% static 'assets/images/project2.jpg' %}" class="card-img-top" alt="Project 2">
+          <div class="card-body text-start">
+            <h5 class="card-title fw-semibold">Business Dashboard</h5>
+            <p class="card-text text-muted">Custom analytics dashboard with charts and KPIs for decision-making.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="{% static 'assets/images/project3.jpg' %}" class="card-img-top" alt="Project 3">
+          <div class="card-body text-start">
+            <h5 class="card-title fw-semibold">Mobile App UI</h5>
+            <p class="card-text text-muted">Beautiful UI/UX design for a cross-platform task management app.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Blog Section -->
+<section class="blog-section py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" style="color: #7039B0;">Latest Blog Posts</h2>
+    <div class="row">
+      <!-- Left Big Blog -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="{% static 'assets/images/blog1.jpg' %}" class="card-img-top" alt="Blog 1">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">How AI Is Transforming Business in 2025</h5>
+            <p class="card-text text-muted">Explore the game-changing trends in artificial intelligence and how companies are leveraging them for competitive advantage.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 3 Small Blogs -->
+      <div class="col-md-6">
+        <div class="d-flex flex-column gap-4">
+          
+          <!-- Blog 2 -->
+          <div class="card shadow-sm border-0">
+            <div class="row g-0">
+              <div class="col-4">
+                <img src="{% static 'assets/images/blog2.jpg' %}" class="img-fluid rounded-start" alt="Blog 2">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h6 class="card-title fw-semibold">Design Thinking for Digital Products</h6>
+                  <p class="card-text small text-muted">User-first design in today’s competitive market.</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Read</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog 3 -->
+          <div class="card shadow-sm border-0">
+            <div class="row g-0">
+              <div class="col-4">
+                <img src="{% static 'assets/images/blog3.jpg' %}" class="img-fluid rounded-start" alt="Blog 3">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h6 class="card-title fw-semibold">Top 5 Tools for Project Management</h6>
+                  <p class="card-text small text-muted">Manage your development workflow efficiently.</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Read</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog 4 -->
+          <div class="card shadow-sm border-0">
+            <div class="row g-0">
+              <div class="col-4">
+                <img src="{% static 'assets/images/blog4.jpg' %}" class="img-fluid rounded-start" alt="Blog 4">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h6 class="card-title fw-semibold">Why Startups Need Scalable Tech</h6>
+                  <p class="card-text small text-muted">Planning ahead from day one.</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Read</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- /.flex-column -->
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
