@@ -1,9 +1,252 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 {% block content %}
-<h2>Contact Us</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Send Message</button>
-</form>
+
+<!-- HERO SECTION -->
+<section class="hero position-relative d-flex align-items-center" style="background: url('{% static 'assets/images/contact.jpg' %}') center/cover no-repeat; height: 100vh;">
+  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
+  <div class="container position-relative text-start" style="z-index: 1; max-width: 700px;">
+    <!--
+    <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
+    <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
+    <a href="{% url 'contact:contact_form' %}" class="btn btn-primary">Start Conversation</a>
+  </div>
+  -->
+</section>
+
+<!-- === Contact SECTION === -->
+
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="h2-page" style="color: var(--primary);">Get in Touch</h2>
+      <p class="body">We’d love to hear from you. Send us a message or reach out through the contact details below.</p>
+    </div>
+    <div class="row">
+    <!-- Contact Form -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm p-4 rounded-4 h-100">
+            
+            <!-- Heading -->
+            <h5 class="h5-small-title mb-4  border-bottom pb-2"style="color: var(--primary);">Send Us a Message</h5>
+            
+            <!-- Form -->
+            <form method="POST" novalidate>
+            {% csrf_token %}
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label for="{{ form.name.id_for_label }}" class="form-label">Your Name:</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                <div class="text-danger small">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="{{ form.email.id_for_label }}" class="form-label">Your Email:</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                <div class="text-danger small">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Subject -->
+            <div class="mb-3">
+                <label for="{{ form.subject.id_for_label }}" class="form-label">Your Query:</label>
+                {{ form.subject }}
+                {% if form.subject.errors %}
+                <div class="text-danger small">{{ form.subject.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Message -->
+            <div class="mb-3">
+                <label for="{{ form.message.id_for_label }}" class="form-label">Your Message:</label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                <div class="text-danger small">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary ">Send Message</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+      <!-- Contact Info -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm p-4">
+        <h5 class="h5-small-title mb-4  border-bottom pb-2" style="color: var(--primary);">Contact Information</h5>
+
+        <p class="body d-flex align-items-start gap-2">
+            <!-- Location Icon -->
+            <svg height="26px" width="26px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24.834 24.834" xml:space="preserve">
+                <g>
+                    <g>
+                        <path style="fill:var(--primary);" d="M6.301,16.501c0,0,3.829-8.827,4.407-10.546c0.182-0.481,0.285-1,0.285-1.543
+                            C10.993,1.976,9.017,0,6.579,0c-2.436,0-4.41,1.976-4.41,4.413c0,0.476,0.078,0.931,0.215,1.361
+                            C2.697,6.877,6.301,16.501,6.301,16.501z M6.579,2.359c1.134,0,2.053,0.919,2.053,2.053c0,1.133-0.919,2.052-2.053,2.052
+                            c-1.133,0-2.051-0.919-2.051-2.052C4.527,3.279,5.446,2.359,6.579,2.359z"/>
+                        <path style="fill:var(--primary)" d="M24.795,11.637C24.389,5.154,19,0,12.417,0c-0.841,0-1.663,0.087-2.459,0.247
+                            c0.514,0.417,0.947,0.929,1.278,1.506c0.132-0.04,0.264-0.084,0.4-0.11v0.986c0.198,0.559,0.311,1.158,0.311,1.784
+                            c0,0.638-0.116,1.271-0.346,1.879c-0.017,0.049-0.044,0.121-0.065,0.181c0.034,0,0.066-0.006,0.1-0.007v5.171h-2.21
+                            c-0.225,0.53-0.448,1.055-0.664,1.56h2.875v5.174c-1.712-0.071-3.319-0.379-4.736-0.853L6.236,19.05l-0.83-2.215
+                            c-0.052-0.138-0.507-1.355-1.09-2.923c0.074,0.919,0.195,1.814,0.394,2.661c-1.615-0.904-2.719-2.084-3.041-3.378h2.382
+                            c-0.188-0.505-0.381-1.029-0.577-1.56H1.669c0.167-0.673,0.552-1.314,1.104-1.903C2.252,8.307,1.8,7.054,1.583,6.401
+                            c-0.873,1.57-1.425,3.342-1.544,5.233l0.001,1.56c0.405,6.486,5.793,11.64,12.377,11.64c6.583,0,11.972-5.154,12.378-11.638
+                            V11.637z M2.639,17.105c0.767,0.593,1.675,1.112,2.704,1.539c0.475,1.232,1.081,2.333,1.796,3.252
+                            C5.188,20.806,3.613,19.127,2.639,17.105z M11.637,23.19c-1.743-0.336-3.282-1.777-4.343-3.893
+                            c1.333,0.357,2.794,0.575,4.343,0.63V23.19z M22.195,7.731c-0.768-0.593-1.676-1.114-2.704-1.54
+                            c-0.474-1.234-1.081-2.336-1.797-3.253C19.647,4.029,21.223,5.708,22.195,7.731z M13.196,1.643
+                            c1.743,0.337,3.283,1.779,4.345,3.894c-1.334-0.357-2.796-0.574-4.345-0.63C13.196,4.907,13.196,1.643,13.196,1.643z
+                            M13.196,6.466c1.857,0.078,3.603,0.421,5.103,0.968c0.406,1.275,0.657,2.696,0.723,4.204h-5.825L13.196,6.466L13.196,6.466z
+                            M13.196,13.196h5.825c-0.065,1.507-0.316,2.93-0.723,4.205c-1.499,0.545-3.244,0.891-5.103,0.969v-5.174H13.196z M13.196,23.19
+                            v-3.263c1.549-0.056,3.01-0.272,4.344-0.63C16.48,21.413,14.94,22.855,13.196,23.19z M17.693,21.896
+                            c0.717-0.917,1.323-2.02,1.798-3.252c1.028-0.427,1.937-0.946,2.704-1.539C21.221,19.127,19.646,20.806,17.693,21.896z
+                            M20.123,16.575c0.251-1.067,0.408-2.199,0.457-3.378h2.585C22.842,14.491,21.739,15.67,20.123,16.575z M20.58,11.637
+                            c-0.049-1.178-0.205-2.31-0.457-3.377c1.615,0.905,2.719,2.083,3.042,3.377H20.58z"/>
+                    </g>
+                </g>
+            </svg>
+            <span><strong>Location:</strong> <br>
+                Lahore, Pakistan<br>
+                Georgia Atlanta, US<br>
+            </span>
+        </p>
+
+        <p class="body d-flex align-items-start gap-2">
+            <!-- Phone Icon -->
+            <svg 
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:cc="http://creativecommons.org/ns#"
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                width="25"
+                height="25"
+                viewBox="0 0 30 30"
+                version="1.1"
+                id="svg822"
+                inkscape:version="0.92.4 (f8dce91, 2019-08-02)"
+                sodipodi:docname="call-ringing.svg">
+                <defs
+                    id="defs816" />
+                <sodipodi:namedview
+                    id="base"
+                    pagecolor="#ffffff"
+                    bordercolor="#666666"
+                    borderopacity="1.0"
+                    inkscape:pageopacity="0.0"
+                    inkscape:pageshadow="2"
+                    inkscape:zoom="17.833333"
+                    inkscape:cx="15"
+                    inkscape:cy="15.55501"
+                    inkscape:document-units="px"
+                    inkscape:current-layer="layer1"
+                    showgrid="true"
+                    units="px"
+                    inkscape:window-width="1366"
+                    inkscape:window-height="713"
+                    inkscape:window-x="0"
+                    inkscape:window-y="0"
+                    inkscape:window-maximized="1"
+                    showguides="false">
+                    <inkscape:grid
+                    type="xygrid"
+                    id="grid816" />
+                </sodipodi:namedview>
+                <metadata
+                    id="metadata819">
+                    <rdf:RDF>
+                    <cc:Work
+                        rdf:about="">
+                        <dc:format>image/svg+xml</dc:format>
+                        <dc:type
+                        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                        <dc:title>
+
+                </dc:title>
+                    </cc:Work>
+                    </rdf:RDF>
+                </metadata>
+                <g
+                    inkscape:label="Layer 1"
+                    inkscape:groupmode="layer"
+                    id="layer1"
+                    transform="translate(0,-289.0625)">
+                    <path
+                    style="opacity:1;fill:var(--primary);fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    d="M 15 3.0820312 L 15 5.0664062 C 17.538188 5.0664062 20.077321 6.0382588 22.019531 7.9804688 C 23.961741 9.9226787 24.933593 12.46181 24.933594 15 L 26.917969 15 C 26.917969 11.94578 25.757953 8.8907663 23.433594 6.5664062 C 21.109235 4.2420462 18.054221 3.0820312 15 3.0820312 z M 8.2207031 5.3925781 L 6.0957031 8.4277344 C 6.4302028 10.726144 8.6753669 14.333569 12.097656 17.755859 C 15.665537 21.323739 19.436115 23.611832 21.712891 23.789062 L 24.597656 21.769531 L 20.488281 17.660156 L 19.78125 18.367188 C 18.767131 19.381307 15.860591 18.661373 13.613281 16.414062 C 11.36597 14.166753 10.653849 11.268026 11.667969 10.253906 L 12.375 9.546875 L 8.2207031 5.3925781 z M 15 7.0058594 L 15 8.9921875 C 16.53344 8.9921875 18.066427 9.5820525 19.242188 10.757812 C 20.417946 11.933573 21.007812 13.46656 21.007812 15 L 22.994141 15 C 22.994141 12.95052 22.214158 10.90166 20.65625 9.34375 C 19.098342 7.78584 17.049472 7.0058594 15 7.0058594 z "
+                    transform="translate(0,289.0625)"
+                    id="rect818" />
+                </g>
+            </svg>
+            <span><strong>Call Us:</strong> <br>
+                +92 300 1234567
+            </span>
+        </p>
+
+        <p class="body d-flex align-items-start gap-2">
+            <!-- Email Icon -->
+        <svg fill="var(--primary)" width="24px" height="24px" viewBox="0 -9.31 56.223 56.223" xmlns="http://www.w3.org/2000/svg">
+            <path id="email_unread" data-name="email unread" d="M798.377,169.859h.012a2.16,2.16,0,0,0,1.181-.346l.092-.059.063-.039,1.071-.887,25.563-21.094a.3.3,0,0,0-.239-.123H770.492a.291.291,0,0,0-.183.066l26.745,22.045A2.1,2.1,0,0,0,798.377,169.859ZM770.2,150.3v31.268l19.159-15.476Zm37.084,15.9,19.139,15.38V150.4Zm-6.085,5.021a4.559,4.559,0,0,1-5.619.005l-4.388-3.619L770.2,184.558v.053a.3.3,0,0,0,.3.3h55.625a.3.3,0,0,0,.3-.3v-.049l-20.974-16.852Z" transform="translate(-770.195 -147.311)"/>
+        </svg>
+            <span><strong>Email:</strong> <br>info@exionix.com</span>
+        </p>
+
+        <p class="body d-flex align-items-start gap-2">
+            <!-- Clock Icon -->
+            <svg fill="var(--primary)" height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 460 460" xml:space="preserve">
+                <g id="XMLID_520_">
+                    <circle id="XMLID_904_" cx="136.16" cy="46.037" r="44.838"/>
+                    <path id="XMLID_910_" d="M240.731,305.545c-1.264-9.895-8.429-18.02-18.087-20.514l-52.085-13.447l1.163-16.39
+                        c-8.885-1.694-16.37-7.756-19.897-16.015l-31.752-74.673l48.394,61.597c4.192,5.335,10.779,8.239,17.586,7.701l41.863-3.331
+                        c-0.288,0.993-0.45,2.039-0.45,3.125c0,6.191,5.019,11.21,11.21,11.21c10.431,0,88.443,0,101.125,0
+                        c5.07,0,9.509-3.403,10.826-8.299l28.463-105.825c1.608-5.979-1.935-12.129-7.914-13.737c-5.979-1.606-12.129,1.934-13.737,7.914
+                        l-26.231,97.526c-10.763,0-41.988,0-52.497,0c4.662-4.086,7.417-10.228,6.888-16.882c-0.89-11.184-10.663-19.538-21.862-18.64
+                        l-70.048,5.573l-41.666-53.033l26.514,19.782l0.852-11.999c1.184-16.686-11.382-31.174-28.069-32.358l-51.411-3.649
+                        c-17.602-1.249-32.567,12.779-32.433,30.444l1.14,149.945c0.047,6.217,2.333,12.15,6.347,16.768H54.218l-21.842-172.47
+                        c-1.127-8.904-9.256-15.213-18.164-14.081c-8.904,1.128-15.209,9.26-14.081,18.164l23.641,186.68
+                        c1.029,8.121,7.937,14.21,16.123,14.21h58.689v66.553l-38.605,31.514c-4.796,3.915-5.511,10.977-1.595,15.773
+                        c3.915,4.797,10.978,5.51,15.773,1.595l24.426-19.94v11.256c0,6.191,5.019,11.21,11.21,11.21c6.191,0,11.21-5.019,11.21-11.21
+                        v-11.256l24.426,19.94c2.082,1.699,4.59,2.527,7.083,2.527c3.25-0.001,6.475-1.407,8.691-4.122
+                        c3.915-4.796,3.201-11.858-1.595-15.773l-38.605-31.514v-66.553h53.516c8.119,0,14.829-5.961,16.038-13.741l3.905,1.008
+                        l13.979,109.404c1.707,13.365,13.927,22.798,27.27,21.091c13.355-1.706,22.797-13.916,21.091-27.27L240.731,305.545z"/>
+                    <path id="XMLID_911_" d="M443.748,259.363H259.15c-8.975,0-16.252,7.276-16.252,16.252s7.276,16.252,16.252,16.252h168.346v134.433
+                        h-76.485c-8.975,0-16.252,7.276-16.252,16.252s7.276,16.252,16.252,16.252h92.737c8.975,0,16.252-7.276,16.252-16.252V275.614
+                        C460,266.639,452.724,259.363,443.748,259.363z"/>
+                </g>
+            </svg>
+            <span><strong>Working Hours:</strong> <br>
+                Monday - Friday: 9:00 AM - 6:00 PM<br>
+                Saturday: 10:00 AM - 4:00 PM<br>
+                Sunday: Closed<br>
+            </span>
+        </p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === MAP SECTION === -->
+<section class="section map-section">
+  <div class="container-fluid px-0">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13610.715702172267!2d74.3210086!3d31.5203694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904dd5ea6f1b5%3A0x7f388a2e70cc2fbb!2sLahore%2C%20Punjab!5e0!3m2!1sen!2s!4v1719749500000!5m2!1sen!2s"
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
 {% endblock %}

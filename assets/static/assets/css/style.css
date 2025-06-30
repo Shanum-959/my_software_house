@@ -3,6 +3,11 @@
 
 @import url("header.css");
 @import url("footer.css");
+@import url("home.css");
+@import url("contact.css");
+
+@import url("responsive.css");
+
 
 
 
@@ -93,6 +98,7 @@
   line-height: 18px;
 }
 
+/*
 .btn-primary {
   font-family: var(--font-body);
   font-size: 16px;
@@ -109,6 +115,27 @@
 
 .btn-primary:hover {
   background-color: var(--primary);
+}
+  border-color: var(--alert);
+
+
+*/
+
+/* Button */
+.btn.btn-primary {
+  background-color: var(--primary);
+  color: var(--surface);
+  font-weight: 500;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.btn.btn-primary:hover {
+  background-color: var(--alert);
+  color: var(--surface);
+  border-color: var(--alert);
 }
 
 /* === Containers & Layout Helpers === */

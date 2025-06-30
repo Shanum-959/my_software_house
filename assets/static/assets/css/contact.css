@@ -1,0 +1,55 @@
+.contact-section {
+  font-family: var(--font-body);
+}
+
+.contact-section .card {
+  border-radius: 1rem;
+  border: none;
+}
+
+.contact-section .form-label {
+  color: var(--text-dark);
+}
+
+.contact-section .btn-primary {
+  background-color: var(--primary);
+  border: none;
+}
+
+.contact-section .btn-primary:hover {
+  background-color: var(--accent);
+}
+form input,
+form textarea {
+  border-radius: 0.5rem;
+  box-shadow: none;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.1rem rgba(219, 94, 44, 0.25); /* soft burnt-orange shadow */
+
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent);
+}
+
+/* MAP SECTION Styling */
+
+.map-section iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+

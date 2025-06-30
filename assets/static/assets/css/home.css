@@ -1,0 +1,351 @@
+/* === HERO SECTION === */
+.hero {
+  background: url("../images/hero.jpg") center center / cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-family: var(--font-body);
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  text-align: left;
+}
+
+.hero h1 {
+  font-family: var(--font-hero);
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #fff;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === Trusted By Marquee === */
+.trusted-companies img {
+  margin: 0 2rem;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.trusted-companies img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* === Services Section === */
+.our-services .card i {
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+.our-services .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--primary);
+  width: 350px;
+  height: 400px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 20px;
+  padding: 10px;
+  margin: auto;
+  position: relative;
+}
+
+.our-services .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.our-services .card-content {
+  background-color: white;
+  width: 340px;
+  height: 400px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 25px;
+}
+.view-services{
+  margin-top:50px;
+}
+
+/* === Why Choose Section === */
+.why-choose .feature-card {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.why-choose .feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-choose .feature-card .icon i {
+  font-size: 2.2rem;
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* === Portfolio Section === */
+.portfolio .card-title {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.portfolio .card-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* === Blog Section === */
+.blog-section .card h5,
+.blog-section .card h6 {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.blog-image{
+    border: 5px solid var(--primary);
+
+}
+.blog-section .card-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.blog-section .card a {
+  color: var(--primary);
+}
+
+.blog-section .card a:hover {
+  text-decoration: underline;
+}
+
+
+/* === Our Process Section === */
+.our-process .container {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.process-image {
+  width: 100%;
+  text-align: center;
+}
+
+.custom-process-img {
+  width: 100%;
+  max-width: 1430px;
+  height: 400px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+
+/* Technologies Section Styling */
+.tech-tabs {
+  background-color: var(--primary); 
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto; /* Allow horizontal scroll on small screens */
+  white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
+}
+
+.tech-tabs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.tech-tabs .tab-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  color: var(--surface);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tech-tabs .tab-btn:hover {
+  background-color: var(--surface);
+  color: var(--alert);
+}
+
+.tech-tabs .tab-btn.active {
+  background-color: var(--alert);
+  color: var(--surface);
+}
+
+.tab-content .tab-panel {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content .tab-panel.active {
+  display: block;
+}
+
+.tab-panel ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.tab-panel ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Testimonial Section Styling */
+
+/* WHY TRUST BOX */
+
+.trust-points {
+  list-style: none;
+  padding-left: 0;
+}
+
+.trust-points li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #444;
+  position: relative;
+  padding-left: 25px;
+}
+
+.trust-points li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #db5e2c;
+  font-weight: bold;
+}
+
+/* TESTIMONIAL SLIDE */
+.testimonial-slide {
+  transition: all 0.3s ease;
+  min-height: 330px;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.review-text {
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.client-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+}
+
+/* Swiper Pagination */
+
+.swiper-pagination-bullet {
+  background-color: #ccc;
+  opacity: 1;
+  margin: 0 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary);
+}
+
+/* FAQ Section */
+
+.accordion-button {
+  background-color: var(--surface) !important;
+  font-weight: 500;
+  color: var(--text-dark) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--primary) !important;
+  background-color: #f9f4f1 !important;
+}
+
+.accordion-body {
+  color: var(--text-muted) !important;
+  font-size: 0.95rem;
+}
+
+/* === Responsive FAQ Section === */
+@media (max-width: 991px) {
+  .accordion-button {
+    font-size: 1rem !important;
+    padding: 0.75rem 1rem;
+  }
+
+  .accordion-body {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .accordion-button {
+    font-size: 0.9rem !important;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .accordion-body {
+    font-size: 0.85rem !important;
+  }
+}

@@ -17,3 +17,39 @@
     }
   });
 
+// Technologies we use  
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".tab-btn");
+  const panels = document.querySelectorAll(".tab-panel");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Remove active class from all
+      buttons.forEach(b => b.classList.remove("active"));
+      panels.forEach(p => p.classList.remove("active"));
+
+      // Add active to clicked
+      btn.classList.add("active");
+      const target = btn.getAttribute("data-tab");
+      document.getElementById(target).classList.add("active");
+    });
+  });
+});
+
+// Testimonial
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper('.testimonial-swiper', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+});
