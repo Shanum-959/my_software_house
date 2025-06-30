@@ -1,0 +1,19 @@
+.careers-section input,
+.careers-section select {
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+}
+
+.careers-section .card {
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.careers-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.careers-section .btn-outline-primary {
+  border-radius: 0.5rem;
+}
