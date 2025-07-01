@@ -140,6 +140,34 @@
   border-color: var(--alert);
 }
 
+/* Form */
+form input,
+form textarea {
+  border-radius: 0.5rem;
+  box-shadow: none;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.1rem rgba(219, 94, 44, 0.25); /* soft burnt-orange shadow */
+
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent);
+}
+
+
 /* === Containers & Layout Helpers === */
 .container {
   max-width: 1200px;

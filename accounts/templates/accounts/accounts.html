@@ -1,14 +1,205 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exionix Tech - My Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-{% block content %}
-<h2>Welcome, {{ user.username }}!</h2>
-<p>This is your account dashboard.</p>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-<ul>
-    <li><a href="{% url 'accounts:profile' %}">My Profile</a></li>
-    <li><a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
-    <li><a href="{% url 'client_portal:client_portal-home' %}">Client Portal</a></li>
-    <li><a href="/quotes/">My Quotes</a></li>
-    <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
-</ul>
-{% endblock %}
+    .dashboard {
+      display: flex;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 1rem;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background-color: #1e1e1e;
+      width: 240px;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 2rem;
+    }
+
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffffcc;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: background 0.3s;
+    }
+
+    .nav-menu a.active,
+    .nav-menu a:hover {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+
+    .nav-menu a.logout {
+      margin-top: auto;
+      color: #ff6b6b;
+    }
+
+    .main {
+      flex: 1;
+      padding: 2rem;
+      background-color: #181818;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .avatar-small {
+      width: 36px;
+      height: 36px;
+      background-color: #db5e2c;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 36px;
+      font-weight: bold;
+    }
+
+    .profile-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+
+    .subheading {
+      font-size: 0.95rem;
+      color: #aaaaaa;
+    }
+
+    .info-section {
+      margin-bottom: 2rem;
+    }
+
+    .info-section h4 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .info-grid div {
+      background-color: #2a2a2a;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .info-grid strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #db5e2c;
+    }
+
+    .info-grid p {
+      color: #ffffffcc;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">Exionix Tech</h2>
+      <nav class="nav-menu">
+        <a href="{% url 'accounts:profile' %}" class="active"><span>👤</span> My Profile</a>
+        <a href="{% url 'accounts:edit_profile' %}"><span>✏️</span> Edit Profile</a>
+        <a href="{% url 'client_portal:client_portal-home' %}"><span>📁</span> Client Portal</a>
+        <a href="/quotes/"><span>💬</span> My Quotes</a>
+        <a href="{% url 'accounts:logout' %}" class="logout"><span>🚪</span> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="header">
+        <h1>Exionix Tech</h1>
+        <div class="avatar-small">{{ user.username|slice:":1"|upper }}</div>
+      </header>
+      {% block dashboard %}
+      <section class="profile-section">
+        <h2>My Profile</h2>
+        <div class="profile-card">
+          <img src="{% static 'assets/images/default-avatar.png' %}" alt="User Avatar" class="avatar" />
+          <div>
+            <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+            <p class="subheading">{{ user.profile.job_title }}</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h4>Personal Information</h4>
+          <div class="info-grid">
+            <div><strong>Full Name</strong><p>{{ user.first_name }} {{ user.last_name }}</p></div>
+            <div><strong>Email</strong><p>{{ user.email }}</p></div>
+            <div><strong>Phone</strong><p>{{ user.profile.phone_number }}</p></div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h4>Professional Details</h4>
+          <div class="info-grid">
+            <div><strong>Role</strong><p>{{ user.profile.job_title }}</p></div>
+            <div><strong>Department</strong><p>{{ user.profile.department }}</p></div>
+            <div><strong>Location</strong><p>{{ user.profile.location }}</p></div>
+          </div>
+        </div>
+      </section>
+      {% endblock %}
+    </main>
+  </div>
+</body>
+</html>
