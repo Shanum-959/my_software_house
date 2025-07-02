@@ -8,7 +8,6 @@
 @import url("career.css");
 @import url("about.css");
 
-@import url("responsive.css");
 
 
 
@@ -100,29 +99,6 @@
   line-height: 18px;
 }
 
-/*
-.btn-primary {
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  background-color: var(--accent);
-  color: #fff;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary);
-}
-  border-color: var(--alert);
-
-
-*/
-
 /* Button */
 .btn.btn-primary {
   background-color: var(--primary);
@@ -132,6 +108,7 @@
   transition: all 0.3s ease;
   padding: 8px 20px;
   font-size: 14px;
+  border-color:var(--primary)
 }
 
 .btn.btn-primary:hover {
