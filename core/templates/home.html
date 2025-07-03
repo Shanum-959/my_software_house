@@ -13,21 +13,21 @@
 </section>
 
 <!-- TRUSTED COMPANIES SECTION -->
-<section class="py-5 bg-white">
+<section class="section bg-white py-5">
   <div class="container text-center">
-    <h5 class="label-small mb-4" style="color: var(--primary);">Trusted by Innovative Brands</h5>
-    <marquee behavior="scroll" direction="left" scrollamount="6">
+    <h5 class="small-label mb-4" style="color: var(--primary);">Trusted by Innovative Brands</h5>
+    <marquee behavior="scroll" direction="left">
       <div class="d-flex gap-5 align-items-center justify-content-center">
-        <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="40">
-        <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="40">
-        <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="40">
-        <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="40">
-        <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="40">
-        <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="40">
-        <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="40">
-        <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="40">
-        <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="40">
-        <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="40">
+        <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="100">
+        <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="100">
+        <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="100">
+        <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="100">
+        <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="100">
+        <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="100">
+        <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="100">
+        <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="100">
+        <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="100">
+        <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="100">
       </div>
     </marquee>
   </div>
@@ -382,44 +382,86 @@
 </section>
 
 <!-- PORTFOLIO SECTION -->
-<section class="section portfolio">
-  <div class="container text-center">
-    <h3 class="h3-section mb-4" style="color: var(--primary);">Our Portfolio</h3>
-    <p class="body text-muted mb-5">Some of the recent projects we’ve crafted for startups, brands, and enterprises.</p>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="{% static 'assets/images/project1.jpg' %}" class="card-img-top" alt="E-commerce Platform">
-          <div class="card-body text-start">
-            <h5 class="h5-small-title">E-commerce Platform</h5>
-            <p class="body text-muted">A scalable online shopping system built using Django and React.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="{% static 'assets/images/project2.jpg' %}" class="card-img-top" alt="Business Dashboard">
-          <div class="card-body text-start">
-            <h5 class="h5-small-title">Business Dashboard</h5>
-            <p class="body text-muted">Custom analytics dashboard with charts and KPIs for decision-making.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="{% static 'assets/images/project3.jpg' %}" class="card-img-top" alt="Mobile App UI">
-          <div class="card-body text-start">
-            <h5 class="h5-small-title">Mobile App UI</h5>
-            <p class="body text-muted">Beautiful UI/UX design for a cross-platform task management app.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-          </div>
-        </div>
-      </div>
+<section class="section portfolio-wrapper" id="portfolio">
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>E-commerce Platform</h2>
+      <p>A scalable online shopping system built using Django and React.</p>
+      <a href="#" class="btn">View Project</a>
     </div>
   </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>Business Dashboard</h2>
+      <p>Custom analytics dashboard with KPIs for business decisions.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>Mobile App UI</h2>
+      <p>Modern UI/UX design for a cross-platform productivity app.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>AI Chatbot</h2>
+      <p>Conversational AI chatbot integrated with NLP and sentiment analysis.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>Real Estate Portal</h2>
+      <p>Property listing platform with maps, filters, and payment integration.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>Healthcare App</h2>
+      <p>Appointment scheduling, prescriptions, and patient records in one place.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>Learning Management System</h2>
+      <p>Online courses, quizzes, and student tracking for educators and learners.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>Travel Booking Website</h2>
+      <p>Search, book, and manage trips with full itinerary tracking.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="content">
+      <h2>Event Management System</h2>
+      <p>Create, promote, and manage events with RSVPs and reminders.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+
 </section>
+
+
+
+
+
 
 <!-- BLOG SECTION -->
 <section class="section blog">
@@ -500,7 +542,7 @@
 
     <!-- Image Section -->
     <div class="process-image">
-      <img src="{% static 'assets/images/process.png' %}" alt="Our Process Illustration" class="img-fluid" style="width:1300px;">
+      <img src="{% static 'assets/images/process.png' %}" alt="Our Process Illustration" class="img-fluid" style="width:1100px;">
     </div>
   </div>
 </section>
@@ -886,6 +928,17 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION SECTION -->
+<section class="section cta-section py-5">
+  <div class="container text-center">
+    <h3 class="h3-section mb-4 cta-title" style="color:var(--primary)">Ready to Start Your Journey?</h3>
+    <p class="body cta-subtitle mb-4">Contact us today and let’s make your project a success!</p>
+    <a href="/contact" class="btn btn-outline-primary">
+      Get in Touch <span class="arrow">→</span>
+    </a>
   </div>
 </section>
 

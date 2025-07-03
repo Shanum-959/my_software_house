@@ -53,3 +53,23 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 });
+
+
+// Portfolio
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll('.portfolio-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, {
+      threshold: 0.6 // means 60% of card is visible
+    });
+
+    cards.forEach(card => observer.observe(card));
+  });

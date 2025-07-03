@@ -84,7 +84,7 @@
   line-height: 28px;
 }
 
-.label-small {
+.small-label{
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
