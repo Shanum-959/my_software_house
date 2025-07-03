@@ -1,4 +1,5 @@
-  window.addEventListener('scroll', function () {
+// Navbar
+ window.addEventListener('scroll', function () {
     const header = document.getElementById('navbar');
     if (window.scrollY > 20) {
       header.classList.remove('transparent');
@@ -73,3 +74,161 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cards.forEach(card => observer.observe(card));
   });
+
+// Chatbot
+document.addEventListener('DOMContentLoaded', () => {
+    const chatToggle = document.querySelector('#chat-toggle');
+    const chatPopup  = document.querySelector('#chat-popup');
+    const chatClose  = document.querySelector('.chat-close');
+    const chatSend   = document.querySelector('#chat-send');
+    const chatInput  = document.querySelector('#chat-input');
+    const chatBody   = document.querySelector('#chat-body');
+
+    /* --- utility: صحیح URL خودکار نکالیں --- */
+    const getChatUrl = () => {
+        const parts = window.location.pathname.split('/');
+        const first = parts[1];            // '' | 'en' | 'ur' | ...
+        const twoLetterLang = /^[a-z]{2}$/i;
+        if (twoLetterLang.test(first)) {
+            return `/${first}/chatbot/message/`;   // ‎/en/chat/message/‎
+        }
+        return `/chatbot/message/`;               // ‎/chat/message/‎
+    };
+
+    /* ------------- widget toggle ------------- */
+    if (chatToggle && chatPopup) {
+        chatToggle.addEventListener('click', () => {
+            const opened = chatPopup.classList.toggle('active');
+            chatPopup.setAttribute('aria-hidden', opened ? 'false' : 'true');
+            if (opened) chatInput.focus();
+        });
+
+        chatClose.addEventListener('click', () => {
+            chatPopup.classList.remove('active');
+            chatPopup.setAttribute('aria-hidden', 'true');
+            chatToggle.focus();
+        });
+
+        /* ------------- message send ------------- */
+        const sendMessage = async () => {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // show user bubble
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message user';
+            userMsg.textContent = message;
+            chatBody.appendChild(userMsg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+            chatInput.value = '';
+
+            try {
+                const response = await fetch(getChatUrl(), {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRFToken'  : document
+                                         .querySelector('meta[name="csrf-token"]')
+                                         .getAttribute('content'),
+                    },
+                    body: JSON.stringify({ message })
+                });
+
+                // اگر 200 نہ ملے تو بھی gracefully handle کریں
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}`);
+                }
+
+                const data = await response.json();
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-message bot';
+                botMsg.textContent = data.response || '…';
+                chatBody.appendChild(botMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+            } catch (err) {
+                console.error('Chat error:', err);
+                const errMsg = document.createElement('div');
+                errMsg.className = 'chat-message bot';
+                errMsg.textContent = 'Sorry, something went wrong.';
+                chatBody.appendChild(errMsg);
+            }
+        };
+
+        chatSend.addEventListener('click', (e) => {
+            e.preventDefault();
+            sendMessage();
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    }
+});
+
+// Newsletter
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ✅ Get CSRF token from cookie
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.startsWith(name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // ✅ Newsletter form submission handler
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (!newsletterForm) return;
+
+    newsletterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const emailInput = this.querySelector('input[name="email"]');
+        if (!emailInput || !emailInput.value || !emailInput.checkValidity()) {
+            alert("Please enter a valid email.");
+            emailInput.focus();
+            return;
+        }
+
+        const payload = { email: emailInput.value };
+
+        fetch('/api/subscribe/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify(payload),
+        })
+        .then(async (res) => {
+            const data = await res.json();
+            if (res.ok && data.email) {
+                this.innerHTML = `<div style="color:white;">Thank you for subscribing, ${data.email}</div>`;
+            } else if (data.email && Array.isArray(data.email)) {
+                alert(data.email[0]);
+                emailInput.focus();
+            } else if (data.detail) {
+                alert(data.detail);
+            } else {
+                alert('Subscription failed. Please try again.');
+            }
+        })
+        .catch(() => {
+            alert('Something went wrong. Please try again later.');
+        });
+    });
+
+});

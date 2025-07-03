@@ -22,6 +22,15 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework.routers import DefaultRouter
+
+from newsletter.views import NewsletterSubscriptionViewSet
+
+# REST Framework router for API endpoints
+router = DefaultRouter()
+
+router.register(r'subscribe', NewsletterSubscriptionViewSet, basename='newsletter')
+
 urlpatterns = [
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
@@ -33,13 +42,15 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('quotes/', include('quotes.urls')),
     path('chatbot/', include('chatbot.urls')),
-    path('newsletter/', include('newsletter.urls')),
     path('payments/', include('payments.urls')),
     path('portal/', include('client_portal.urls')),
     path('support/', include('support.urls')),
     path('kb/', include('knowledge_base.urls')),
     path('analytics/', include('analytics.urls')),
     path('localization/', include('localization.urls')),
+
+    path('api/', include(router.urls)),
+
 
     path(
         'reset/<uidb64>/<token>/',

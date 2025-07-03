@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
     <title>{% block title %}My Site{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 <!-- 
@@ -37,10 +39,22 @@
     <main>
         {% block content %}
         {% endblock %}
-        <!-- Simple Chatbot Trigger Button -->
-        <div class="chatbot" onclick="alert('👋 Hello! I am Exionix Assistant.')">
-          💬
+        <!-- Chat Widget -->
+        <div class="chat-popup" id="chat-popup" role="dialog" aria-labelledby="chat-header" aria-hidden="true">
+            <div class="chat-header">
+                <h3 id="chat-header">Exionix Chat</h3>
+                <button class="chat-close" aria-label="Close chat">×</button>
+            </div>
+            <div class="chat-body" id="chat-body" role="log" aria-live="polite">
+                <div class="chat-message bot">"Welcome! How can I help you today?"</div>
+            </div>
+            <div class="chat-footer">
+                <label for="chat-input" class="sr-only">Chat input</label>
+                <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Chat input" />
+                <button id="chat-send">Send</button>
+            </div>
         </div>
+        <button id="chat-toggle" aria-label="Toggle chat">💬</button>
 
     </main>
         {% include "footer.html" %}
