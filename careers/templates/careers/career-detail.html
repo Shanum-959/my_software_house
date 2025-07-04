@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="max-w-3xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-2">{{ career.title }}</h2>
+    <p class="text-sm text-gray-500">📍 {{ career.location }} | 🕒 {{ career.job_type }} | 💼 {{ career.work_mode }}</p>
+
+    <h3 class="mt-6 text-lg font-semibold">Job Description</h3>
+    <p class="text-gray-700 mt-2 whitespace-pre-line">{{ career.description }}</p>
+
+    <h3 class="mt-6 text-lg font-semibold">Requirements</h3>
+    <p class="text-gray-700 mt-2 whitespace-pre-line">{{ career.requirements }}</p>
+
+    <a href="#" class="mt-6 inline-block bg-purple-600 text-white px-6 py-2 rounded">Apply Now</a>
+</div>
+{% endblock %}

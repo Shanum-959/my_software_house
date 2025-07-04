@@ -3,6 +3,5 @@ from .models import Subscriber
 
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
-    list_display = ('email', 'subscribed_at', 'confirmed')
-    list_filter = ('confirmed', 'subscribed_at')
+    list_display = ('email', 'confirmed', 'created_at')
     search_fields = ('email',)

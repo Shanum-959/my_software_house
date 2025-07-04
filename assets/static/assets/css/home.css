@@ -6,6 +6,7 @@
   align-items: center;
   position: relative;
   font-family: var(--font-body);
+  
 }
 
 .hero-overlay {
@@ -22,6 +23,7 @@
   z-index: 1;
   max-width: 700px;
   text-align: left;
+  background-color: #7039B0;
 }
 
 .hero h1 {
