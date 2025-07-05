@@ -436,19 +436,19 @@
 
     <!-- Section Heading -->
     <div class="text-center mb-5">
-      <h2 class="fw-bold">{{ process_section.heading }}</h2>
-      <p class="text-muted">{{ process_section.description }}</p>
+      <h3 class="h3-section" style="color: var(--primary);">{{ process_section.heading }}</h3>
+      <p class="body text-muted">{{ process_section.description }}</p>
     </div>
 
     <!-- Steps Grid -->
-    <div class="row text-center g-4">
+    <div class="row g-4">
       {% for step in process_section.steps.all %}
       <div class="col-md-3">
         <div class="process-step p-4 h-100">
         <!--  <img src="{{ step.icon.url }}" alt="{{ step.title }}" class="mb-3" height="40"> -->
-          <h6 class="text-purple mb-2">Step {{ step.step_number }}</h6>
-          <h5 class="fw-semibold mb-2">{{ step.title }}</h5>
-          <p class="text-muted small">{{ step.description }}</p>
+          <h6 class="caption mb-2">Step {{ step.step_number }}</h6>
+          <h5 class="h5-small-title mb-2">{{ step.title }}</h5>
+          <p class="body">{{ step.description }}</p>
         </div>
       </div>
       {% endfor %}
@@ -806,12 +806,13 @@
     </div>
   </div>
 </section>
+
 <!-- FAQ -->
 <section class="section faq-section py-5" id="faq">
   <div class="container">
     <div class="text-center mb-5">
       <h3 class="h3-section mb-4" style="color: var(--primary);">Frequently Asked Questions</h3>
-      <p class="text-muted">We’ve got answers to common questions from our clients.</p>
+      <p class="body text-muted">We’ve got answers to common questions from our clients.</p>
     </div>
 
     <div class="accordion" id="faqAccordion">
