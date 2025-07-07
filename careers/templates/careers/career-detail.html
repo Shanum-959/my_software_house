@@ -3,16 +3,69 @@
 {% block content %}
 
 
-<div class="max-w-3xl mx-auto p-6">
-    <h2 class="text-3xl font-bold mb-2">{{ career.title }}</h2>
-    <p class="text-sm text-gray-500">📍 {{ career.location }} | 🕒 {{ career.job_type }} | 💼 {{ career.work_mode }}</p>
+<!-- templates/careers/career-detail.html -->
 
-    <h3 class="mt-6 text-lg font-semibold">Job Description</h3>
-    <p class="text-gray-700 mt-2 whitespace-pre-line">{{ career.description }}</p>
+<div class="career-detail-card">
+    <h2>{{ career.title }}</h2>
+    <p><strong>Location:</strong> {{ career.location }}</p>
+    <p><strong>Category:</strong> {{ career.category }}</p>
+    <p><strong>Job Type:</strong> {{ career.job_type }}</p>
+    <p><strong>Work Mode:</strong> {{ career.work_mode }}</p>
+    <p><strong>Posted At:</strong> {{ career.posted_at }}</p>
+    
+    <hr>
+    
+   
+<div class="career-detail-container">
+    <div class="job-header">
+        <p><a href="#">Jobs</a> / {{ career.title }}</p>
+        <h1>{{ career.title }}</h1>
+        <p>{{ career.location }} | {{ career.work_mode }}</p>
 
-    <h3 class="mt-6 text-lg font-semibold">Requirements</h3>
-    <p class="text-gray-700 mt-2 whitespace-pre-line">{{ career.requirements }}</p>
+        <div class="job-actions">
+        <a href="{% url 'careers:career-apply' career.pk %}" class="apply">Apply Now</a>
+            <button class="save">Save</button>
+        </div>
+    </div>
 
-    <a href="#" class="mt-6 inline-block bg-purple-600 text-white px-6 py-2 rounded">Apply Now</a>
+    <div class="job-section">
+        <h2>About the job</h2>
+        <p>{{ career.description|linebreaks }}</p>
+    </div>
+
+    <div class="job-section">
+        <h2>Responsibilities</h2>
+        <ul>
+            {% for item in career.requirements.splitlines %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="job-section">
+        <h2>Qualifications</h2>
+        <ul>
+        {% for item in career.qualifications.splitlines %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+
+    <div class="job-section">
+        <h2>Benefits</h2>
+        <ul>
+            <li>Competitive salary and benefits package</li>
+            <li>Flexible work hours and remote work options</li>
+            <li>Opportunities for professional development and growth</li>
+        </ul>
+    </div>
+
+    <div class="job-footer">
+        <a href="{% url 'careers:career-apply' career.pk %}" class="apply">Apply Now</a>
+
+    </div>
 </div>
+
+
+
 {% endblock %}

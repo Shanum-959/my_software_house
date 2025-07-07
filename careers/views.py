@@ -1,6 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404 ,redirect
 from .models import Career
 from django.db.models import Q
+from django.contrib import messages
+from .forms import JobApplicationForm
+
 
 def careers_list_view(request):
     query = request.GET.get('q')
@@ -26,4 +29,33 @@ def careers_list_view(request):
 
 def career_detail_view(request, pk):
     career = get_object_or_404(Career, pk=pk)
-    return render(request, 'careers/career-detail.html', {'career': career})
+
+    ai_features = [
+        {'feature': 'Resume Parser', 'endpoint': '/api/parse_resume/', 'status': '✅'},
+        {'feature': 'Relevance Matching', 'endpoint': '/api/match_score/', 'status': '⏳'},
+        {'feature': 'Smart Job Suggestions', 'endpoint': '/api/recommend_jobs/', 'status': '⏳'},
+        {'feature': 'Interview Bot', 'endpoint': '/api/interview/', 'status': '⏳'},
+        {'feature': 'Sentiment Analysis', 'endpoint': '/api/sentiment/', 'status': '⏳'},
+        {'feature': 'CV Quality Checker', 'endpoint': '/api/cv_quality/', 'status': '⏳'},
+    ]
+
+    return render(request, 'careers/career-detail.html', {
+        'career': career,
+        'ai_features': ai_features,
+    })
+def apply_view(request, pk):
+    career = get_object_or_404(Career, pk=pk)
+    if request.method == 'POST':
+        form = JobApplicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            application = form.save(commit=False)
+            application.career = career
+            application.save()
+            messages.success(request, 'Your application has been submitted successfully.')
+            return redirect('careers:career-detail', pk=career.pk)  
+        else:
+            messages.error(request, 'Please fill all the errors below.') # You can change this to a success page
+    
+    else:
+        form = JobApplicationForm()
+    return render(request, 'careers/apply.html', {'form': form, 'career': career})

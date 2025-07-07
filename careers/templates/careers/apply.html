@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="mx-auto bg-white shadow rounded p-5" style="max-width: 600px;">
+      <h3 class="text-center mb-4">Apply for {{ career.title }}</h3>
+
+      {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        
+      <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+          {{ form.full_name.label_tag }} {{ form.full_name }}
+        </div>
+        <div class="mb-3">
+          {{ form.email.label_tag }} {{ form.email }}
+        </div>
+        <div class="mb-3">
+          {{ form.phone.label_tag }} {{ form.phone }}
+        </div>
+        <div class="mb-3">
+          {{ form.linkedin_url.label_tag }} {{ form.linkedin_url }}
+        </div>
+        <div class="mb-3">
+          {{ form.portfolio_url.label_tag }} {{ form.portfolio_url }}
+        </div>
+        <div class="mb-3">
+          {{ form.resume.label_tag }} {{ form.resume }}
+        </div>
+        <div class="mb-3">
+          {{ form.cover_letter.label_tag }} {{ form.cover_letter }}
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
