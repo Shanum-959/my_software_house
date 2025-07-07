@@ -28,17 +28,20 @@
       {% for project in projects %}
       <div class="col-md-6">
         <div class="card rounded-3 w-100 overflow-hidden shadow">
-          {% if project.image %}
-            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
-          {% endif %}
-          <div class="card-body">
-            <h5 class="card-title mb-1">{{ project.title }}</h5>
-            <p class="body mb-1 text-muted"><strong>Client:</strong> {{ project.client_name }}</p>
-            <p class="body mb-2">{{ project.description }}</p>
-            {% if project.project_url %}
-              <a href="{{ project.project_url }}" target="_blank" class="btn btn-sm btn-primary">View Project</a>
+          <a href="{% url 'portfolio:portfolio_detail' slug=project.slug %}" class="text-decoration-none text-dark">
+
+            {% if project.image %}
+              <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
             {% endif %}
-          </div>
+            <div class="card-body">
+              <h5 class="card-title mb-1">{{ project.title }}</h5>
+              <p class="body mb-1 text-muted"><strong>Client:</strong> {{ project.client_name }}</p>
+              <p class="body mb-2">{{ project.description }}</p>
+              {% if project.project_url %}
+                <a href="{{ project.project_url }}" target="_blank" class="btn btn-sm btn-primary">View Project</a>
+              {% endif %}
+            </div>
+          </a>
         </div>
       </div>
       {% endfor %}

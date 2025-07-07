@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- HERO SECTION -->
+<section class="hero position-relative d-flex align-items-center"
+         style="background: url('{{ hero.background_image.url }}') center/cover no-repeat; height: 100vh;">
+  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
+
+</section>
+
+<!-- Overview section -->
+<section class="section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Left: Text -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h3 class="h3-section" style="color: var(--primary);">{{ overview.title }}</h3>
+        <p class="body mt-3">{{ overview.description|linebreaks }}</p>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="col-lg-6">
+        <img src="{{ overview.image.url }}" alt="image" class="img-fluid rounded shadow-sm">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Requirements section -->
+<section class="section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Left: Image -->
+      <div class="col-md-6">
+        <img src="{{ requirements.image.url }}" alt="image" class="img-fluid rounded shadow">
+      </div>
+
+      <!-- Right: Text -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h3 class="h3-section" style="color: var(--primary);">
+          {{ requirements.title }}
+        </h3>
+        <p class="body">
+          {{ requirements.description|linebreaks }}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Solutions section -->
+<section class="section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Left: Text -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h3 class="h3-section" style="color: var(--primary);">
+          {{ solutions.title|default:"Solutions" }}
+        </h3>
+        <p class="body">
+          {{ solutions.description|linebreaks }}
+        </p>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="col-md-6">
+        <img src="{{ solutions.image.url }}" alt="Solutions" class="img-fluid rounded shadow">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- full image -->
+<section class="section full-width-image">
+  <img src="{{ full_image.image.url }}" alt="Banner Image" class="img-fluid w-100" style="height:700px">
+</section>
+
+
+<!-- Result section -->
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h3 class="h3-section" style="color: var(--primary);">
+      {{ result.title|default:"Result" }}
+    </h3>
+    <p class="body">
+      {{ result.description|linebreaks }}
+    </p>
+  </div>
+</section>
+
+
+<!-- Technology section -->
+<section class="section py-5">
+  <div class="container">
+
+    <!-- Section Heading -->
+    <div class="text-center mb-5">
+      <h3 class="h3-section" style="color: var(--primary);">{{ tech_section.heading }}</h3>
+      <p class="body">{{ tech_section.description }}</p>
+    </div>
+
+    <!-- Tech Stack Grid -->
+    <div class="row text-center g-4">
+      {% for tech in tech_section.technologies.all %}
+      <div class="col-6 col-md-3 col-lg-1-5">
+        <img src="{{ tech.icon.url }}" alt="{{ tech.name }}" class="img-fluid mb-2" style="height: 50px;">
+        <p class="mb-0 text-muted">{{ tech.name }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- Contact SECTION -->
+
+<section class="section"> 
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
+            <div class="phone-info">
+              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="main-button ">Send Message</button>
+                </fieldset>
+              </div>
+            </div>
+            <div class="contact-dec">
+              <img src="assets/images/contact-decoration.png" alt="">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

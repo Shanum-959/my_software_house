@@ -3,4 +3,6 @@ from . import views
 app_name = 'portfolio'
 urlpatterns = [
     path('', views.portfolio_list, name='portfolio_home'),
+    path('<slug:slug>/', views.portfolio_detail, name='portfolio_detail'),
+
 ]
