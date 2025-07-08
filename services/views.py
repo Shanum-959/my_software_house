@@ -7,14 +7,14 @@ def service_list(request):
 
 def services_detail(request, slug):
     service = get_object_or_404(Service, slug=slug)
-    hero = Hero.objects.first()
-    about = About.objects.first()
-    feature_section = FeatureSection.objects.prefetch_related('features').first()
-    platform_section = PlatformSection.objects.prefetch_related('platforms').first()
-    process_section = ProcessSection.objects.prefetch_related('steps').first()
     
-    faqs = FAQ.objects.all()  # FAQ objects fetch kar rahe hain
-
+    hero = getattr(service, 'hero_section', None)
+    about = getattr(service, 'about_section', None)
+    feature_section = service.feature_sections.prefetch_related('features').first()
+    platform_section = service.platform_sections.prefetch_related('platforms').first()
+    process_section = service.process_sections.prefetch_related('steps').first()
+    faqs = service.faqs.all()  # service ke related FAQs
+    
     context = {
         'service': service,
         'hero': hero,
@@ -23,6 +23,6 @@ def services_detail(request, slug):
         'features': feature_section.features.all() if feature_section else [],
         'platform_section': platform_section,
         'process_section': process_section,
-        'faqs': faqs,  # context mein faqs add kar rahe hain
+        'faqs': faqs,
     }
     return render(request, 'services/services_detail.html', context)
