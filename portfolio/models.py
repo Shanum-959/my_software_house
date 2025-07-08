@@ -12,12 +12,14 @@ class PortfolioProject(models.Model):
         return self.title
 
 class Hero(models.Model):
+    project = models.OneToOneField(PortfolioProject, on_delete=models.CASCADE, related_name='hero')
     background_image = models.ImageField(upload_to='hero/')
 
     def __str__(self):
         return "Hero Section"
 
 class OverviewSection(models.Model):
+    project = models.ForeignKey(PortfolioProject, on_delete=models.CASCADE, related_name='overview_sections')
     title = models.CharField(max_length=100, default="Overview")
     description = models.TextField()
     image = models.ImageField(upload_to='overview/')
@@ -26,6 +28,7 @@ class OverviewSection(models.Model):
         return self.title
 
 class RequirementsSection(models.Model):
+    project = models.ForeignKey(PortfolioProject, on_delete=models.CASCADE, related_name='requirements_sections')
     title = models.CharField(max_length=100, default="Requirements")
     description = models.TextField()
     image = models.ImageField(upload_to='requirements/')
@@ -34,6 +37,7 @@ class RequirementsSection(models.Model):
         return self.title
 
 class SolutionsSection(models.Model):
+    project = models.ForeignKey(PortfolioProject, on_delete=models.CASCADE, related_name='solutions_sections')
     title = models.CharField(max_length=100, default="Solutions", blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='solutions/')
@@ -42,12 +46,14 @@ class SolutionsSection(models.Model):
         return self.title or "Solutions Section"
 
 class FullWidthImage(models.Model):
+    project = models.ForeignKey(PortfolioProject, on_delete=models.CASCADE, related_name='fullwidth_images')
     image = models.ImageField(upload_to='fullwidth/')
 
     def __str__(self):
         return f"Full Image ID: {self.id}"
 
 class ResultSection(models.Model):
+    project = models.ForeignKey(PortfolioProject, on_delete=models.CASCADE, related_name='result_sections')
     title = models.CharField(max_length=100, default="Result", blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
@@ -55,6 +61,7 @@ class ResultSection(models.Model):
         return self.title or "Result Section"
 
 class TechnologySection(models.Model):
+    project = models.OneToOneField(PortfolioProject, on_delete=models.CASCADE, related_name='technology_section')
     heading = models.CharField(max_length=100, default="Our Technology Stack")
     description = models.TextField(blank=True, null=True)
 

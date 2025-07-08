@@ -7,15 +7,8 @@
 <section class="hero position-relative d-flex align-items-center" style="background: url('{{ hero.background_image.url }}') center/cover no-repeat; height: 100vh;">
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
   
-  {% if hero %}
-  <div class="container position-relative text-start" style="z-index: 1; max-width: 700px;">
-    <h1 class="h1-hero text-white">{{ hero.heading }}</h1>
-    <p class="body text-white my-4">{{ hero.subheading }}</p>
-    {% if hero.button_text and hero.button_link %}
-      <a href="{{ hero.button_link }}" class="btn btn-primary">{{ hero.button_text }}</a>
-    {% endif %}
+
   </div>
-  {% endif %}
 </section>
 
 
@@ -417,8 +410,8 @@
     <!-- Platforms Grid -->
     <div class="row text-center g-4 justify-content-center">
       {% for platform in platform_section.platforms.all %}
-        <div class="col-6 col-md-3">
-          <div class="p-3 border rounded bg-white shadow-sm h-100">
+        <div class="col-6 col-md-2">
+          <div class="p-3 h-100">
             <img src="{{ platform.logo.url }}" alt="{{ platform.name }}" class="img-fluid mb-2" style="height: 40px;">
             <p class=" body mb-0 fw-semibold">{{ platform.name }}</p>
           </div>
@@ -431,24 +424,24 @@
 
 
 <!-- DYNAMIC PROCESS SECTION -->
-<section class="section py-5 bg-white" id="process">
-  <div class="container">
+<section class="section py-5" id="process">
+  <div class="container" >
 
     <!-- Section Heading -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-5" >
       <h3 class="h3-section" style="color: var(--primary);">{{ process_section.heading }}</h3>
-      <p class="body text-muted">{{ process_section.description }}</p>
+      <p class="body" >{{ process_section.description }}</p>
     </div>
 
     <!-- Steps Grid -->
-    <div class="row g-4">
+    <div class="row g-4" style="background-color: var(--primary);">
       {% for step in process_section.steps.all %}
       <div class="col-md-3">
         <div class="process-step p-4 h-100">
         <!--  <img src="{{ step.icon.url }}" alt="{{ step.title }}" class="mb-3" height="40"> -->
-          <h6 class="caption mb-2">Step {{ step.step_number }}</h6>
-          <h5 class="h5-small-title mb-2">{{ step.title }}</h5>
-          <p class="body">{{ step.description }}</p>
+          <h6 class="caption mb-2" style="color: var(--surface);">Step {{ step.step_number }}</h6>
+          <h5 class="h5-small-title mb-2" style="color: var(--surface);">{{ step.title }}</h5>
+          <p class="body" style="color: var(--surface);">{{ step.description }}</p>
         </div>
       </div>
       {% endfor %}

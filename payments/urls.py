@@ -1,8 +1,0 @@
-# example app/urls.py
-
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('', views.payment_list, name='payments-home'),
-]
