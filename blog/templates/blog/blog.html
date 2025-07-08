@@ -33,25 +33,26 @@
               <path fill="var(--primary)" fill-rule="evenodd" d="M4 9a5 5 0 1110 0A5 5 0 014 9zm5-7a7 7 0 104.2 12.6.999.999 0 00.093.107l3 3a1 1 0 001.414-1.414l-3-3a.999.999 0 00-.107-.093A7 7 0 009 2z"/>
             </svg>
           </span>
-          <input type="text" class="form-control border-start-0" placeholder="Search blog title, keywords...">
+           <form method="get" action="{% url 'blog:blog_home' %}" class="search-form">
+          <input type="text" class="form-control border-start-0"  name="q"placeholder="Search blog title, keywords..."value="{{ request.GET.q }}">
+        </form>
         </div>
       </div>
-
       <div class="col-md-6 mb-2 text-md-end">
-        <select class="form-select w-auto d-inline-block">
-          <option selected disabled>Filter by Category</option>
-          <option>AI & Automation</option>
-          <option>UI/UX Design</option>
-          <option>Web Development</option>
-          <option>Marketing Strategy</option>
-          <option>Business Tips</option>
+        <form method="get" action="{% url 'blog:blog_home' %}" class="search-form">
+    <select name="category" class="form-select w-auto d-inline-block" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            {% for cat in categories %}
+                <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>{{ cat }}</option>
+            {% endfor %}
         </select>
+  </form>
       </div>
     </div>
     <!--Blog -->
 
     <div class="row g-4">
-      {% for blog in posts %}
+      {% for blog in blogs %}
         <div class="col-md-4 mb-4">
           <div class="card h-100 shadow-sm border-0">
 
@@ -77,6 +78,10 @@
     </div>
 
   </div>
+  
+    </div>
+</div>
+
 </section>
 
 

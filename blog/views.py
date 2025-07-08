@@ -1,10 +1,34 @@
 from django.shortcuts import render, get_object_or_404
 from .models import BlogPost
+from django.db.models import Q
 
 def blog_list(request):
-    posts = BlogPost.objects.all().order_by('-published_at')
-    return render(request, 'blog/blog.html', {'posts': posts})
+    query = request.GET.get('q')
+    category = request.GET.get('category')
+
+    blogs = BlogPost.objects.all().order_by('-published_at')
+
+    if query:
+        blogs = blogs.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query)
+        )
+
+    if category:
+        blogs = blogs.filter(category__iexact=category)
+
+    categories = BlogPost.objects.values_list('category', flat=True).distinct()
+
+    return render(request, 'blog/blog.html', {
+        'blogs': blogs,
+        'categories': categories,
+    })
+
+
+# def blog_list(request):
+#     posts = BlogPost.objects.all().order_by('-published_at')
+#     return render(request, 'blog/blog.html', {'posts': posts})
 
 def blog_detail(request, slug):
     post = get_object_or_404(BlogPost, slug=slug)
-    return render(request, 'blog/blog_detail.html', {'post': post})
+    return render(request, 'blog/blog_list.html', {'post': post})
