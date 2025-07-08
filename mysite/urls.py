@@ -40,14 +40,8 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('careers/', include('careers.urls')),
     path('accounts/', include('accounts.urls')),
-    path('quotes/', include('quotes.urls')),
     path('chatbot/', include('chatbot.urls')),
-    path('payments/', include('payments.urls')),
     path('portal/', include('client_portal.urls')),
-    path('support/', include('support.urls')),
-    path('kb/', include('knowledge_base.urls')),
-    path('analytics/', include('analytics.urls')),
-    path('localization/', include('localization.urls')),
 
     path('api/', include(router.urls)),
 
