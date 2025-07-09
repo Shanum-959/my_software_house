@@ -25,16 +25,10 @@ INSTALLED_APPS = [
     'contact',
     'careers',
     'accounts',
-    'quotes',
     'chatbot',
     'rest_framework',
     'newsletter',
-    'payments',
     'client_portal',
-    'support',
-    'knowledge_base',
-    'analytics',
-    'localization',
     'assets',
 ]
 
