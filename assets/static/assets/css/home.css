@@ -313,7 +313,9 @@
 }
 
 .trust-points li::before {
-  content: "✔";
+ /* content: "✔";*/
+   margin-bottom: 12px;
+  font-size: 1rem;
   position: absolute;
   left: 0;
   color: #db5e2c;
