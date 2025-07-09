@@ -40,7 +40,6 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('careers/', include('careers.urls')),
     path('accounts/', include('accounts.urls')),
-<<<<<<< HEAD
     # path('quotes/', include('quotes.urls')),
     path('chatbot/', include('chatbot.urls')),
     # path('payments/', include('payments.urls')),
@@ -49,10 +48,7 @@ urlpatterns = [
     # path('kb/', include('knowledge_base.urls')),
     # path('analytics/', include('analytics.urls')),
     # path('localization/', include('localization.urls')),
-=======
-    path('chatbot/', include('chatbot.urls')),
-    path('portal/', include('client_portal.urls')),
->>>>>>> ff0730bf12df124ea52cf1a190763d79495e2f6e
+
 
     path('api/', include(router.urls)),
 
