@@ -7,10 +7,14 @@
       <h3 class="text-center mb-4">Apply for {{ career.title }}</h3>
 
       {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-          {% endfor %}
-        {% endif %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+
         
       <form method="post" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
