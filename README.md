@@ -5,9 +5,15 @@ A professional software house project built with Django.
 ##  Features
 
 - Django backend setup
-- Modular project structure
+- Modular app structure (16+ apps)
+- PostgreSQL database support
+- DRF APIs for integration
+- File upload with Pillow
+- Admin dashboard + client portal
+- Newsletter & careers module with resume upload
 - Version control with Git & GitHub
-- Virtual environment support
+- Virtual environment & environment variable support
+- Ready for deployment with `.env` support
 
 ##  Installation
 
@@ -37,16 +43,30 @@ A professional software house project built with Django.
 
 ```
 my_software_house/
-├── manage.py
-├── mysite/
+├── accounts/
+├── blog/
+├── careers/
+├── client_portal/
+├── core/
+├── newsletter/
+├── services/
+├── ...
+├── my_software_house/
 │   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
+│   ├── settings/
+│   │   ├── base.py
+│   │   ├── dev.py
+│   │   └── prod.py
 │   ├── urls.py
 │   └── wsgi.py
+├── templates/
+├── static/
+├── backup.py
+├── requirements.txt
 └── venv/
-```
 
+```
+<!-- .env ki file must banani ha wo pari hui ha -->
 ## 🤝 Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
