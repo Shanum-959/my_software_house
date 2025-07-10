@@ -1,0 +1,48 @@
+/* TOC Heading Styling */
+#toc-toggle {
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+#toc-toggle:hover {
+  color: var(--primary); /* Burnt Orange on hover */
+}
+
+/* TOC Icon */
+#toc-icon {
+  font-size: 16px;
+  margin-left: 10px;
+  color: var(--primary);
+}
+
+/* TOC List Styling */
+#toc-list {
+  background-color: var(--neutral-bg); /* Light Gray */
+  padding: 10px 15px;
+  border-left: 3px solid var(--primary);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* TOC List Items */
+#toc-list li {
+  margin-bottom: 8px;
+  list-style-type: none;
+}
+
+/* TOC Links */
+#toc-list li a {
+  text-decoration: none;
+  color: #4a4a4a; /* Dark Gray */
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+#toc-list li a:hover {
+  color: #db5e2c; /* Burnt Orange hover */
+  text-decoration: underline;
+}

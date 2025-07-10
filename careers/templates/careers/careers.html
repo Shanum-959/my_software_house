@@ -20,7 +20,7 @@
     <!-- Section Heading -->
     <div class="text-center mb-4">
       <h3 class="h3-section mb-3" style="color: var(--primary);">Job Openings</h3>
-      <p class="text-muted">Explore our current openings and become part of the Exionix Tech team.</p>
+      <p class="body text-muted">Explore our current openings and become part of the Exionix Tech team.</p>
     </div>
 
     <!-- Search & Filter Row -->
@@ -34,64 +34,35 @@
             </svg>
           </span>
           <form method="get" action="{% url 'careers:careers-list' %}" class="search-form">
-          <input type="text" class="form-control border-start-0" name="q" placeholder="Search job title, location, skills..."value="{{ request.GET.q }}">
+            <input type="text" class="form-control border-start-0" name="q" placeholder="Search job title, location..."value="{{ request.GET.q }}">
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 mb-2 text-md-end">
+        <form method="get" action="{% url 'careers:careers-list' %}" class="search-form">
+          <select name="category" class="form-select w-auto d-inline-block" onchange="this.form.submit()">
+            <option value="">Filter by Category</option>
+            {% for cat in categories %}
+            <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>
+            {{ cat }}
+            </option>
+            {% endfor %}
+          </select>
         </form>
-        </div>
-
       </div>
-     <div class="col-md-6 mb-2 text-md-end">
-  <form method="get" action="{% url 'careers:careers-list' %}" class="search-form">
-    <select name="category" class="form-select w-auto d-inline-block" onchange="this.form.submit()">
-      <option value="">Filter by Category</option>
-      {% for cat in categories %}
-        <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>
-          {{ cat }}
-        </option>
-      {% endfor %}
-    </select>
-  </form>
-</div>
-
     </div>
 
-    <!-- Job Cards Grid 
-    <div class="row g-4">
-      // Job Card 
-      <div class="col-md-4">
-        <div class="card shadow-sm p-4 h-100">
-          <h5 class="fw-bold text-dark mb-2">Frontend Developer</h5>
-          <p class="text-muted small mb-2 d-flex align-items-center gap-3">
-          <span class="d-flex align-items-center gap-1">
-            <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-                <g>
-                  <path fill="var(--primary)" d="M32,0C18.745,0,8,10.745,8,24c0,5.678,2.502,10.671,5.271,15l17.097,24.156C30.743,63.686,31.352,64,32,64
-                    s1.257-0.314,1.632-0.844L50.729,39C53.375,35.438,56,29.678,56,24C56,10.745,45.255,0,32,0z M32,38c-7.732,0-14-6.268-14-14
-                    s6.268-14,14-14s14,6.268,14,14S39.732,38,32,38z"/>
-                  <path fill="var(--primary)" d="M32,12c-6.627,0-12,5.373-12,12s5.373,12,12,12s12-5.373,12-12S38.627,12,32,12z M32,34
-                    c-5.523,0-10-4.478-10-10s4.477-10,10-10s10,4.478,10,10S37.523,34,32,34z"/>
-                </g>
-            </svg> 
-            Remote
-          </span>
-            <span class="d-flex align-items-center gap-1">
-              <svg width="15px" height="15px" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
-                <path fill="var(--primary)" fill-rule="evenodd" d="M207.960546,159.843246 L210.399107,161.251151 C210.637153,161.388586 210.71416,161.70086 210.580127,161.933013 C210.442056,162.172159 210.144067,162.258604 209.899107,162.117176 L207.419233,160.68542 C207.165323,160.8826 206.846372,161 206.5,161 C205.671573,161 205,160.328427 205,159.5 C205,158.846891 205.417404,158.291271 206,158.085353 L206,153.503423 C206,153.22539 206.231934,153 206.5,153 C206.776142,153 207,153.232903 207,153.503423 L207,158.085353 C207.582596,158.291271 208,158.846891 208,159.5 C208,159.6181 207.986351,159.733013 207.960546,159.843246 Z M206.5,169 C211.746705,169 216,164.746705 216,159.5 C216,154.253295 211.746705,150 206.5,150 C201.253295,150 197,154.253295 197,159.5 C197,164.746705 201.253295,169 206.5,169 Z" transform="translate(-197 -150)"/>
-              </svg> 
-              Full-time
-            </span>
-          </p>
-          <p class="small mb-3">Work with React, Tailwind, and APIs to create stunning UIs.</p>
-          <a href="#apply" class="btn btn-sm btn-primary">Apply Now</a>
-        </div>
-      </div>
+    <!-- Job Cards Grid -->
 
-      // Another Job Card
-      <div class="col-md-4">
+    <div class="row">
+      {% for job in careers %}
+      <div class="col-md-4 mb-4">
         <div class="card shadow-sm p-4 h-100">
-          <h5 class="fw-bold text-dark mb-2">AI Engineer</h5>
+          <h5 class="fw-bold text-dark mb-2">{{ job.title }}</h5>
           <p class="text-muted small mb-2 d-flex align-items-center gap-3">
+            <!-- Location -->
             <span class="d-flex align-items-center gap-1">
-              <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+              <svg width="15px" height="15px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g>
                   <path fill="var(--primary)" d="M32,0C18.745,0,8,10.745,8,24c0,5.678,2.502,10.671,5.271,15l17.097,24.156C30.743,63.686,31.352,64,32,64
                     s1.257-0.314,1.632-0.844L50.729,39C53.375,35.438,56,29.678,56,24C56,10.745,45.255,0,32,0z M32,38c-7.732,0-14-6.268-14-14
@@ -100,72 +71,33 @@
                     c-5.523,0-10-4.478-10-10s4.477-10,10-10s10,4.478,10,10S37.523,34,32,34z"/>
                 </g>
               </svg> 
-              Lahore
+              {{ job.location }}
             </span>
+
+            <!-- Work mode -->
             <span class="d-flex align-items-center gap-1">
               <svg width="15px" height="15px" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
                 <path fill="var(--primary)" fill-rule="evenodd" d="M207.960546,159.843246 L210.399107,161.251151 C210.637153,161.388586 210.71416,161.70086 210.580127,161.933013 C210.442056,162.172159 210.144067,162.258604 209.899107,162.117176 L207.419233,160.68542 C207.165323,160.8826 206.846372,161 206.5,161 C205.671573,161 205,160.328427 205,159.5 C205,158.846891 205.417404,158.291271 206,158.085353 L206,153.503423 C206,153.22539 206.231934,153 206.5,153 C206.776142,153 207,153.232903 207,153.503423 L207,158.085353 C207.582596,158.291271 208,158.846891 208,159.5 C208,159.6181 207.986351,159.733013 207.960546,159.843246 Z M206.5,169 C211.746705,169 216,164.746705 216,159.5 C216,154.253295 211.746705,150 206.5,150 C201.253295,150 197,154.253295 197,159.5 C197,164.746705 201.253295,169 206.5,169 Z" transform="translate(-197 -150)"/>
               </svg> 
-              Hybrid
+              {{ job.work_mode }}
             </span>
           </p>
-          <p class="small mb-3">Develop smart applications using Python, OpenAI APIs, and ML models.</p>
-          <a href="#apply" class="btn btn-sm btn-primary">Apply Now</a>
+          <!-- Short description -->
+          <p class="small mb-3">
+            {{ job.description|truncatewords:16 }}
+          </p>
+          <!-- Apply button -->
+          <a href="{% url 'careers:career-detail' job.pk %}" class="btn btn-sm btn-primary">Apply Now</a>
         </div>
       </div>
-      Another Job Card -->
-      <div class="row">
-  {% for job in careers %}
-  <div class="col-md-4 mb-4">
-    <div class="card shadow-sm p-4 h-100">
-      <h5 class="fw-bold text-dark mb-2">{{ job.title }}</h5>
-
-      <p class="text-muted small mb-2 d-flex align-items-center gap-3">
-        <!-- Location -->
-        <span class="d-flex align-items-center gap-1">
-          <svg width="15px" height="15px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <g>
-              <path fill="var(--primary)" d="M32,0C18.745,0,8,10.745,8,24c0,5.678,2.502,10.671,5.271,15l17.097,24.156C30.743,63.686,31.352,64,32,64
-                s1.257-0.314,1.632-0.844L50.729,39C53.375,35.438,56,29.678,56,24C56,10.745,45.255,0,32,0z M32,38c-7.732,0-14-6.268-14-14
-                s6.268-14,14-14s14,6.268,14,14S39.732,38,32,38z"/>
-              <path fill="var(--primary)" d="M32,12c-6.627,0-12,5.373-12,12s5.373,12,12,12s12-5.373,12-12S38.627,12,32,12z M32,34
-                c-5.523,0-10-4.478-10-10s4.477-10,10-10s10,4.478,10,10S37.523,34,32,34z"/>
-            </g>
-          </svg> 
-          {{ job.location }}
-        </span>
-
-        <!-- Work mode -->
-        <span class="d-flex align-items-center gap-1">
-          <svg width="15px" height="15px" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
-            <path fill="var(--primary)" fill-rule="evenodd" d="M207.960546,159.843246 L210.399107,161.251151 C210.637153,161.388586 210.71416,161.70086 210.580127,161.933013 C210.442056,162.172159 210.144067,162.258604 209.899107,162.117176 L207.419233,160.68542 C207.165323,160.8826 206.846372,161 206.5,161 C205.671573,161 205,160.328427 205,159.5 C205,158.846891 205.417404,158.291271 206,158.085353 L206,153.503423 C206,153.22539 206.231934,153 206.5,153 C206.776142,153 207,153.232903 207,153.503423 L207,158.085353 C207.582596,158.291271 208,158.846891 208,159.5 C208,159.6181 207.986351,159.733013 207.960546,159.843246 Z M206.5,169 C211.746705,169 216,164.746705 216,159.5 C216,154.253295 211.746705,150 206.5,150 C201.253295,150 197,154.253295 197,159.5 C197,164.746705 201.253295,169 206.5,169 Z" transform="translate(-197 -150)"/>
-          </svg> 
-          {{ job.work_mode }}
-        </span>
-      </p>
-
-      <!-- Short description -->
-      <p class="small mb-3">
-        {{ job.description|truncatewords:16 }}
-      </p>
-
-      <!-- Apply button -->
-      <a href="{% url 'careers:career-detail' job.pk %}" class="btn btn-sm btn-primary">Apply Now</a>
-    </div>
-  </div>
-  {% empty %}
-  <div class="col-12 text-center text-muted">
-    <p>No jobs found matching your search/filter.</p>
-  </div>
-  {% endfor %}
-</div>
-
-        </div>
+      {% empty %}
+      <div class="col-12 text-center text-muted">
+        <p>No jobs found matching your search/filter.</p>
       </div>
-
-
-      <!-- Add more cards if needed -->
+      {% endfor %} 
     </div>
+
+
 
     <!-- Optional CTA -->
     <div class="text-center mt-5">

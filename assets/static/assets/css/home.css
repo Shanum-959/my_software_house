@@ -42,18 +42,43 @@
 }
 
 /* === Trusted By Marquee === */
-.trusted-companies img {
-  margin: 0 2rem;
-  opacity: 0.8;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
-.trusted-companies img:hover {
-  transform: scale(1.1);
-  opacity: 1;
+.marquee-content {
+  display: flex;
+  width: max-content;
+  gap: 60px;
+  animation: scroll-marquee 30s linear infinite;
 }
+
+.marquee-content img {
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
 
 /* === Services Section === */
+.our-services{
+  overflow: hidden;
+}
 .our-services .card i {
   font-size: 2.5rem;
   color: var(--primary);
@@ -162,8 +187,6 @@
 .portfolio-card .btn {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #db5e2c;
-  color: #fff;
   border: none;
   text-decoration: none;
   border-radius: 8px;
@@ -536,6 +559,19 @@ form#contact button {
 form#contact button:hover {
   background-color: #fe3f40;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* === Responsive FAQ Section === */
 @media (max-width: 991px) {

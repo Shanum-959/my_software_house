@@ -232,3 +232,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+
+
+// blog table of content
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const tocToggle = document.getElementById("toc-toggle");
+    const tocList = document.getElementById("toc-list");
+    const tocIcon = document.getElementById("toc-icon");
+
+    tocToggle.addEventListener("click", function () {
+      if (tocList.style.display === "none" || tocList.style.display === "") {
+        tocList.style.display = "block";
+        tocIcon.textContent = "▲";
+      } else {
+        tocList.style.display = "none";
+        tocIcon.textContent = "▼";
+      }
+    });
+  });

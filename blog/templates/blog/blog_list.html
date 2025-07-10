@@ -1,19 +1,108 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <div class="blog-detail">
-        <h2>{{ post.title }}</h2>
-        <p><strong>Author:</strong> {{ post.author }}</p>
-        <p><strong>Published:</strong> {{ post.published_at|date:"F j, Y" }}</p>
+<!-- HERO SECTION -->
+<section class="hero position-relative d-flex align-items-center" style="background: url('{% static 'assets/images/blog.jpg' %}') center/cover no-repeat; height: 100vh;">
+  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
+  <div class="container position-relative text-start" style="z-index: 1; max-width: 700px;">
+    <!--
+    <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
+    <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
+    <a href="{% url 'contact:contact_form' %}" class="btn btn-primary">Start Conversation</a>
+  </div>
+  -->
+</section>
+<section class="section ">
+    <div class="container my-5">
+  <div class="row">
+    <!-- 8-column div -->
+    <div class="col-md-8 p-4 bg-white">
+      <!-- Centered Image -->
+<div class="text-center mb-3">
+<img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" style="max-height: 500px; object-fit: cover;">
+</div>
 
-        {% if post.image %}
-            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
-        {% endif %}
 
-        <div class="content">
-            {{ post.content|linebreaks }}
-        </div>
+      <!-- Date (left aligned) -->
+      <p class="body text-start mb-1">{{ post.published_at|date:"F j, Y" }}</p>
 
-        <a href="{% url 'blog:blog_home' %}">← Back to Blog</a>
+      <!-- Title -->
+      <h3 class="h3-sectionmb-3">{{ post.title }}</h3>
+
+<!-- TOC List -->
+<!-- Table of Content Heading -->
+<h5 id="toc-toggle" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+  Table of Content
+  <span id="toc-icon" style="font-size: 16px;">▼</span>
+</h5>
+
+<!-- TOC List (Initially Hidden) -->
+<ul id="toc-list" style="display: none; list-style-type: none; padding-left: 0;">
+  {% for section in post.sections.all %}
+    <li style="margin-bottom: 5px;">
+      <a href="#{{ section.heading_id }}">{{ forloop.counter }}. {{ section.heading_title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+
+
+<!-- Sections -->
+{% for section in post.sections.all %}
+  <h5 class="h5-small-title mb-3 mt-3" id="{{ section.heading_id }}">{{ forloop.counter }}. {{ section.heading_title }}</h5>
+  <div>{{ section.content|linebreaksbr }}</div>
+{% endfor %}
+
+
+<!-- Author Section -->
+<h5 class="h5-small-title text-uppercase mt-4">About the Author</h5>
+<div class="author d-flex align-items-center">
+  <img src="{{ post.author_image.url }}" alt="{{ post.author}}" class="rounded-circle me-3" />
+  <div>
+    <h6 class="mb-1">{{ post.author }}</h6>
+    <p class="body mb-0" style="font-size: 0.9rem;">
+        {{ post.author_bio }}    
+    </p>
+  </div>
+</div>
+
     </div>
+
+<!-- 4-column div -->
+<div class="col-md-4 text-white p-4" style="background: var(--alert);">
+  <h5 class="text-uppercase fw-bold">Newsletter</h5>
+  <p>Subscribe to get the latest news and updates.</p>
+  <form class="newsletter-form">
+    <div class="input-group mb-4">
+      <input type="email" name="email" class="form-control" placeholder="Your email address" required>
+      <button type="submit" aria-label="Subscribe" class="btn btn-outline-light">Subscribe</button>
+    </div>
+  </form>
+
+  <!-- Recent Post -->
+
+  <h5 class="text-uppercase fw-bold">Recent Post</h5>
+
+{% for item in recent %}
+  <div class="recent-post">
+    <img src="{{ item.image.url }}" alt="Recent Post Image" class="img-fluid rounded mb-2" />
+    <p>{{ item.excerpt }}</p>
+  </div>
+{% endfor %}
+
+
+
+  </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
 {% endblock %}

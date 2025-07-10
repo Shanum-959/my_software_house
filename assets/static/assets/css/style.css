@@ -5,8 +5,9 @@
 @import url("footer.css");
 @import url("home.css");
 @import url("contact.css");
-@import url("career.css");
 @import url("about.css");
+@import url("career.css");
+@import url("blog.css");
 
 /* === CSS Variables === */
 :root {

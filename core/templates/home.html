@@ -16,22 +16,41 @@
 <section class="section bg-white py-5">
   <div class="container text-center">
     <h5 class="small-label mb-4" style="color: var(--primary);">Trusted by Innovative Brands</h5>
-    <marquee behavior="scroll" direction="left">
-      <div class="d-flex gap-5 align-items-center justify-content-center">
-        <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="100">
-        <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="100">
-        <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="100">
-        <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="100">
-        <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="100">
-        <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="100">
-        <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="100">
-        <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="100">
-        <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="100">
-        <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="100">
-      </div>
-    </marquee>
+
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <!-- 👇 Repeat logos here -->
+          <!-- Repeat this block for more logos -->
+          <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="80">
+          <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="80">
+          <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="80">
+          <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="80">
+          <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="80">
+          <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="80">
+          <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="80">
+          <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="80">
+          <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="80">
+          <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="80">
+
+          <!-- 🔁 Duplicate for seamless scrolling -->
+
+          <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="80">
+          <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="80">
+          <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="80">
+          <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="80">
+          <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="80">
+          <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="80">
+          <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="80">
+          <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="80">
+          <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="80">
+          <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="80">
+
+        </div>
+    </div>
   </div>
 </section>
+
+
 
 <!-- OUR SERVICES SECTION -->
 <section class="section our-services" style="background-color: #dfd5ea;;">
@@ -386,72 +405,219 @@
 
 <!-- PORTFOLIO SECTION -->
 <section class="section portfolio-wrapper" id="portfolio">
+  <div class="container text-center">
+    <h3 class="h3-section mb-4" style="color: var(--primary);">Our Portfolio</h3>
+  </div>
+  <div class="portfolio-card" style="display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 20px; flex-wrap: wrap;">
+        <!-- Left: Text Content -->
+        <div class="content" style=" min-width: 280px; margin-left:80px;">
+          <p class="small-label text-start" style="color: #4a4a4a; margin-bottom: 20px;">
+            Web Application Development
+          </p>
+          <h5 class="h5-small-heading text-start" style="font-size: 24px; color: #333333; margin-bottom: 10px;">Spacdyna</h5>
+          <p class="body text-start" style=" margin-bottom: 20px;">
+            Spacdyna is a dynamic digital marketing agency focused on delivering impactful online growth solutions. The client approached Exionix Tech with a vision to build a modern, fast, and conversion-focused digital platform to showcase their services, attract clients, and establish a strong online presence.
+          </p>
+          <p class="small-label text-start" style="margin-bottom: 20px;">
+            <strong>Industry:</strong> Digital Marketing <br>
+            <strong>Country:</strong> US
+          </p>
 
-  <div class="portfolio-card">
-    <div class="content">
-      <h2>E-commerce Platform</h2>
-      <p>A scalable online shopping system built using Django and React.</p>
-      <a href="#" class="btn">View Project</a>
-    </div>
+          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <p class="small-label text-start mb-0" style="margin: 0; white-space: nowrap;">
+              <strong>Core Technologies</strong>
+            </p>
+            <img src="{% static 'assets/images/django.png' %}" alt="Tech 1" width="40" height="40">
+            <img src="{% static 'assets/images/bootstrap.png' %}" alt="Tech 2" width="40" height="40">
+            <img src="{% static 'assets/images/postgresql.png' %}" alt="Tech 3" width="40" height="40">
+            <img src="{% static 'assets/images/heroku.png' %}" alt="Tech 4" width="40" height="40">
+          </div>
+          <div style="text-align: left;">
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <!-- Right: Image -->
+        <div class="image" style="flex: 1; min-width: 280px; text-align: right;">
+          <img src="{% static 'assets/images/spacdyna.png' %}" alt="Spacdyna" style="max-width: 100%; border-radius: 12px;">
+        </div>
   </div>
 
-  <div class="portfolio-card">
-    <div class="content">
-      <h2>Business Dashboard</h2>
-      <p>Custom analytics dashboard with KPIs for business decisions.</p>
-      <a href="#" class="btn">View Project</a>
-    </div>
+  <div class="portfolio-card" style="display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 20px; flex-wrap: wrap;">
+        <!-- Left: Text Content -->
+        <div class="content" style=" min-width: 280px; margin-left:80px;">
+          <p class="small-label text-start" style="color: #4a4a4a; margin-bottom: 20px;">
+            Web Application Development
+          </p>
+          <h5 class="h5-small-heading text-start" style="font-size: 24px; color: #333333; margin-bottom: 10px;">Medicare</h5>
+          <p class="body text-start" style=" margin-bottom: 20px;">
+            Medicare’s website launch improved patient engagement by offering 
+            straightforward access to essential information and convenient 
+            appointment booking. User feedback praised the site’s ease of 
+            use and comprehensive content.
+          </p>
+          <p class="small-label text-start" style="margin-bottom: 20px;">
+            <strong>Industry:</strong> Medical <br>
+            <strong>Country:</strong> UK
+          </p>
+
+          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <p class="small-label text-start mb-0" style="margin: 0; white-space: nowrap;">
+              <strong>Core Technologies</strong>
+            </p>
+            <img src="{% static 'assets/images/django.png' %}" alt="Tech 1" width="40" height="40">
+            <img src="{% static 'assets/images/bootstrap.png' %}" alt="Tech 2" width="40" height="40">
+            <img src="{% static 'assets/images/postgresql.png' %}" alt="Tech 3" width="40" height="40">
+            <img src="{% static 'assets/images/heroku.png' %}" alt="Tech 4" width="40" height="40">
+          </div>
+          <div style="text-align: left;">
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <!-- Right: Image -->
+        <div class="image" style="flex: 1; min-width: 280px; text-align: right;">
+          <img src="{% static 'assets/images/medicare.png' %}" alt="Medicare" style="max-width: 100%; border-radius: 12px;">
+        </div>
   </div>
 
-  <div class="portfolio-card">
-    <div class="content">
-      <h2>Mobile App UI</h2>
-      <p>Modern UI/UX design for a cross-platform productivity app.</p>
-      <a href="#" class="btn">View Project</a>
-    </div>
+  <div class="portfolio-card" style="display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 20px; flex-wrap: wrap;">
+        <!-- Left: Text Content -->
+        <div class="content" style=" min-width: 280px; margin-left:80px;">
+          <p class="small-label text-start" style="color: #4a4a4a; margin-bottom: 20px;">
+            Web Application Development
+          </p>
+          <h5 class="h5-small-heading text-start" style="font-size: 24px; color: #333333; margin-bottom: 10px;">Simple House</h5>
+          <p class="body text-start" style=" margin-bottom: 20px;">
+            Simple House is a women-led on-delivery restaurant dedicated to bringing homemade, fresh, and delicious meals directly to customers’ doorsteps. The client approached Exionix Tech to build an easy-to-use digital platform that showcases their menu, streamlines order placement, and supports their mission of empowering women entrepreneurs in the food industry.
+
+          </p>
+          <p class="small-label text-start" style="margin-bottom: 20px;">
+            <strong>Industry:</strong> E-commerce <br>
+            <strong>Country:</strong> UAE
+          </p>
+
+          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <p class="small-label text-start mb-0" style="margin: 0; white-space: nowrap;">
+              <strong>Core Technologies</strong>
+            </p>
+            <img src="{% static 'assets/images/django.png' %}" alt="Tech 1" width="40" height="40">
+            <img src="{% static 'assets/images/bootstrap.png' %}" alt="Tech 2" width="40" height="40">
+            <img src="{% static 'assets/images/postgresql.png' %}" alt="Tech 3" width="40" height="40">
+            <img src="{% static 'assets/images/heroku.png' %}" alt="Tech 4" width="40" height="40">
+          </div>
+          <div style="text-align: left;">
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <!-- Right: Image -->
+        <div class="image" style="flex: 1; min-width: 280px; text-align: right;">
+          <img src="{% static 'assets/images/simple.png' %}" alt="Simple" style="max-width: 100%; border-radius: 12px;">
+        </div>
   </div>
 
-  <div class="portfolio-card">
-    <div class="content">
-      <h2>AI Chatbot</h2>
-      <p>Conversational AI chatbot integrated with NLP and sentiment analysis.</p>
-      <a href="#" class="btn">View Project</a>
-    </div>
+  <div class="portfolio-card" style="display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 20px; flex-wrap: wrap;">
+        <!-- Left: Text Content -->
+        <div class="content" style=" min-width: 280px; margin-left:80px;">
+          <p class="small-label text-start" style="color: #4a4a4a; margin-bottom: 20px;">
+            Web Application Development
+          </p>
+          <h5 class="h5-small-heading text-start" style="font-size: 24px; color: #333333; margin-bottom: 10px;">Sentra</h5>
+          <p class="body text-start" style=" margin-bottom: 20px;">
+            Sentra is a curated digital experience designed to connect travelers, history lovers, and cultural explorers with the world’s most iconic historical landmarks. The client approached Exionix Tech with the vision to build an elegant, content-rich platform that brings historical places to life through immersive visuals, detailed writeups, and interactive guides.
+
+          </p>
+          <p class="small-label text-start" style="margin-bottom: 20px;">
+            <strong>Industry:</strong> Travel <br>
+            <strong>Country:</strong> UAE
+          </p>
+
+          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <p class="small-label text-start mb-0" style="margin: 0; white-space: nowrap;">
+              <strong>Core Technologies</strong>
+            </p>
+            <img src="{% static 'assets/images/django.png' %}" alt="Tech 1" width="40" height="40">
+            <img src="{% static 'assets/images/bootstrap.png' %}" alt="Tech 2" width="40" height="40">
+            <img src="{% static 'assets/images/postgresql.png' %}" alt="Tech 3" width="40" height="40">
+            <img src="{% static 'assets/images/heroku.png' %}" alt="Tech 4" width="40" height="40">
+          </div>
+          <div style="text-align: left;">
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <!-- Right: Image -->
+        <div class="image" style="flex: 1; min-width: 280px; text-align: right;">
+          <img src="{% static 'assets/images/sentra.png' %}" alt="Sentra" style="max-width: 100%; border-radius: 12px;">
+        </div>
   </div>
 
+  <div class="portfolio-card" style="display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 20px; flex-wrap: wrap;">
+        <!-- Left: Text Content -->
+        <div class="content" style=" min-width: 280px; margin-left:80px;">
+          <p class="small-label text-start" style="color: #4a4a4a; margin-bottom: 20px;">
+            Web Application Development
+          </p>
+          <h5 class="h5-small-heading text-start" style="font-size: 24px; color: #333333; margin-bottom: 10px;">Tinker</h5>
+          <p class="body text-start" style=" margin-bottom: 20px;">
+            Tinker is a modern visual content platform designed to empower photographers, artists, and creatives in showcasing their work with clarity and impact. The client approached Exionix Tech with the goal of creating a high-performance website that not only highlights captivating images but also builds a strong brand identity online.
+
+          </p>
+          <p class="small-label text-start" style="margin-bottom: 20px;">
+            <strong>Industry:</strong> Media  <br>
+            <strong>Country:</strong> Pakistan
+          </p>
+
+          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <p class="small-label text-start mb-0" style="margin: 0; white-space: nowrap;">
+              <strong>Core Technologies</strong>
+            </p>
+            <img src="{% static 'assets/images/django.png' %}" alt="Tech 1" width="40" height="40">
+            <img src="{% static 'assets/images/bootstrap.png' %}" alt="Tech 2" width="40" height="40">
+            <img src="{% static 'assets/images/postgresql.png' %}" alt="Tech 3" width="40" height="40">
+            <img src="{% static 'assets/images/heroku.png' %}" alt="Tech 4" width="40" height="40">
+          </div>
+          <div style="text-align: left;">
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <!-- Right: Image -->
+        <div class="image" style="flex: 1; min-width: 280px; text-align: right;">
+          <img src="{% static 'assets/images/tinker.png' %}" alt="Tinker" style="max-width: 100%; border-radius: 12px;">
+        </div>
+  </div>
 
   <div class="portfolio-card" style="display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 20px; flex-wrap: wrap;">
     <!-- Left: Text Content -->
-    <div class="content" style="flex: 1; min-width: 280px;">
-      <h2 style="font-size: 24px; color: #333333; margin-bottom: 10px;">E-commerce Platform</h2>
-      <p style="color: #4a4a4a; margin-bottom: 20px;">
-        A scalable online shopping system built using Django and React.
+    <div class="content" style=" min-width: 280px; margin-left:80px;">
+      <p class="small-label text-start" style="color: #4a4a4a; margin-bottom: 20px;">
+        Web Application Development
       </p>
-      <a href="#" class="btn" style="padding: 10px 20px; background-color: #db5e2c; color: #fff; text-decoration: none; border-radius: 8px;">View Project</a>
+      <h5 class="h5-small-heading text-start" style="font-size: 24px; color: #333333; margin-bottom: 10px;">Victory</h5>
+      <p class="body text-start" style=" margin-bottom: 20px;">
+        Victory is a vibrant restaurant known for its delicious menu and warm hospitality. The client approached Exionix Tech to build a modern and user-friendly website that showcases their dishes, promotes special offers, and facilitates easy reservations.
+
+      </p>
+      <p class="small-label text-start" style="margin-bottom: 20px;">
+        <strong>Industry:</strong> Restaurant <br>
+        <strong>Country:</strong> UAE
+      </p>
+      <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+        <p class="small-label text-start mb-0" style="margin: 0; white-space: nowrap;">
+          <strong>Core Technologies</strong>
+        </p>
+        <img src="{% static 'assets/images/django.png' %}" alt="Tech 1" width="40" height="40">
+        <img src="{% static 'assets/images/bootstrap.png' %}" alt="Tech 2" width="40" height="40">
+        <img src="{% static 'assets/images/postgresql.png' %}" alt="Tech 3" width="40" height="40">
+        <img src="{% static 'assets/images/heroku.png' %}" alt="Tech 4" width="40" height="40">
+      </div>
+      <div style="text-align: left;">
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
     </div>
     <!-- Right: Image -->
     <div class="image" style="flex: 1; min-width: 280px; text-align: right;">
-      <img src="{% static 'assets/images/medicare.png' %}" alt="E-commerce Project" style="max-width: 100%; border-radius: 12px;">
+      <img src="{% static 'assets/images/victory.png' %}" alt="victory" style="max-width: 100%; border-radius: 12px;">
     </div>
   </div>
-
-  <div class="portfolio-card">
-    <div class="content">
-      <h2>Healthcare App</h2>
-      <p>Appointment scheduling, prescriptions, and patient records in one place.</p>
-      <a href="#" class="btn">View Project</a>
-    </div>
-
-    <!-- Right: Image -->
-    <div class="image" style="flex: 1; min-width: 280px; text-align: right;">
-      <img src="{% static 'assets/images/sentra.png' %}" alt="E-commerce Project" style="max-width: 100%; border-radius: 12px;">
-    </div>
-  </div>
-
 </section>
-
-
-
 
 
 
@@ -524,6 +690,9 @@
   </div>
 </section>
 
+
+
+
 <!-- OUR PROCESS TO DELIVERY SECTION -->
 <section class="section our-process">
   <div class="container text-center">
@@ -568,7 +737,7 @@
             <img src="{% static 'assets/images/javascript.png' %}" alt="JAVASCRIPT" width="50" height="50">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/bootstrap.png' %}" alt="BOOTSTRAP" width="50" height="50">
+            <img src="{% static 'assets/images/bootstrap.png' %}" alt="BOOTSTRAP" width="70" height="70">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
             <img src="{% static 'assets/images/react.png' %}" alt="REACT" width="50" height="50">
@@ -598,10 +767,7 @@
             <img src="{% static 'assets/images/java.png' %}" alt="JAVA" width="50" height="50">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/laravel.png' %}" alt="LATAVEL" width="50" height="50">
-          </div>
-          <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/mongodb.png' %}" alt="MONGO DB" width="50" height="50">
+            <img src="{% static 'assets/images/mongodb.png' %}" alt="MONGO DB" width="90" height="90">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
             <img src="{% static 'assets/images/postgresql.png' %}" alt="POSTGRE SQL" width="50" height="50">
@@ -609,7 +775,7 @@
         </div>
       </div>
 
-      <div class="tab-panel active" id="mobile">
+      <div class="tab-panel" id="mobile">
         <div class="d-flex flex-wrap justify-content-center gap-4">
           <div class="tech-item d-flex align-items-center gap-2">
             <img src="{% static 'assets/images/ios.png' %}" alt="IOS" width="50" height="50">
@@ -633,72 +799,72 @@
         </div>
       </div>
 
-      <div class="tab-panel active" id="ai">
+      <div class="tab-panel" id="ai">
         <div class="d-flex flex-wrap justify-content-center gap-4">
           <div class="tech-item d-flex align-items-center gap-2">
             <img src="{% static 'assets/images/openai.png' %}" alt="OPENAI" width="50" height="50">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/pytorch.png' %}" alt=" PYTORCH" width="50" height="50">
+            <img src="{% static 'assets/images/pytorch.png' %}" alt=" PYTORCH" width="100" height="100">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/scikit.png' %}" alt="SCIKIT" width="50" height="50">
+            <img src="{% static 'assets/images/scikit.png' %}" alt="SCIKIT" width="80" height="80">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/mlflow.png' %}" alt="MLFLOW" width="50" height="50">
+            <img src="{% static 'assets/images/mlflow.png' %}" alt="MLFLOW" width="80" height="80">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
             <img src="{% static 'assets/images/tensorflow.png' %}" alt="TENSORFLOW" width="50" height="50">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/uipath.png' %}" alt="UIPATH" width="50" height="50">
+            <img src="{% static 'assets/images/uipath.png' %}" alt="UIPATH" width="80" height="80">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/zapier.png' %}" alt="ZAPIER" width="50" height="50">
+            <img src="{% static 'assets/images/zapier.png' %}" alt="ZAPIER" width="80" height="80">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/streamlit.png' %}" alt="STREAM LIT" width="50" height="50">
+            <img src="{% static 'assets/images/streamlit.png' %}" alt="STREAM LIT" width="80" height="80">
           </div>
            <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/dialogflow.png' %}" alt="DIALOG FLOW" width="50" height="50">
+            <img src="{% static 'assets/images/dialogflow.png' %}" alt="DIALOG FLOW" width="120" height="120">
           </div>         
         </div>
       </div>
 
-      <div class="tab-panel active" id="cloud">
+      <div class="tab-panel" id="cloud">
         <div class="d-flex flex-wrap justify-content-center gap-4">
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/aws.png' %}" alt="AWS" width="50" height="50">
+            <img src="{% static 'assets/images/aws.png' %}" alt="AWS" width="60" height="60">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
             <img src="{% static 'assets/images/azure.png' %}" alt=" AZURE" width="50" height="50">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/gcp.png' %}" alt="GCP" width="50" height="50">
+            <img src="{% static 'assets/images/gcp.png' %}" alt="GCP" width="60" height="60">
           </div>          
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/digitalocean.png' %}" alt="DIGITALOCEAN" width="70" height="70">
+            <img src="{% static 'assets/images/digitalocean.png' %}" alt="DIGITALOCEAN" width="80" height="80">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/kubernetes.png' %}" alt="KUBERNETES" width="70" height="70">
+            <img src="{% static 'assets/images/kubernetes.png' %}" alt="KUBERNETES" width="120" height="120">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/heroku.png' %}" alt="HEROKU" width="70" height="70">
+            <img src="{% static 'assets/images/heroku.png' %}" alt="HEROKU" width="90" height="90">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/netlify.png' %}" alt="NETLIFY" width="70" height="70">
+            <img src="{% static 'assets/images/netlify.png' %}" alt="NETLIFY" width="100" height="100">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/replit.png' %}" alt="REPLIT" width="70" height="70">
+            <img src="{% static 'assets/images/replit.png' %}" alt="REPLIT" width="100" height="100">
           </div>
         </div>
       </div>
 
 
-      <div class="tab-panel active" id="devops">
+      <div class="tab-panel" id="devops">
         <div class="d-flex flex-wrap justify-content-center gap-4">
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/git.png' %}" alt="GIT" width="50" height="50">
+            <img src="{% static 'assets/images/git.png' %}" alt="GIT" width="60" height="60">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
             <img src="{% static 'assets/images/github.png' %}" alt=" GITHUB" width="50" height="50">
@@ -707,16 +873,16 @@
             <img src="{% static 'assets/images/gitlab.png' %}" alt="GITLAB" width="50" height="50">
           </div>          
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/docker.png' %}" alt="DOCKER" width="50" height="50">
+            <img src="{% static 'assets/images/docker.png' %}" alt="DOCKER" width="60" height="60">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/jenkins.png' %}" alt="JENKINS" width="50" height="50">
+            <img src="{% static 'assets/images/jenkins.png' %}" alt="JENKINS" width="70" height="70">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/bitbucket.png' %}" alt="BITBUCKET" width="50" height="50">
+            <img src="{% static 'assets/images/bitbucket.png' %}" alt="BITBUCKET" width="120" height="120">
           </div>
           <div class="tech-item d-flex align-items-center gap-2">
-            <img src="{% static 'assets/images/nginx.png' %}" alt="NGINX" width="50" height="50">
+            <img src="{% static 'assets/images/nginx.png' %}" alt="NGINX" width="70" height="70">
           </div>          
         </div>
       </div>
@@ -979,7 +1145,6 @@
 </section>
 
 
-
 <section>
   <div id="contact" class="contact-us section">
     <div class="container">
@@ -993,6 +1158,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <form id="contact" action="" method="post">
             <div class="row">
@@ -1031,7 +1197,8 @@
       </div>
     </div>
   </div>
-</section>
+</section>=
+
 
 
 {% endblock %}
