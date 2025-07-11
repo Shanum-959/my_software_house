@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import (
     PortfolioProject,
-    Hero,
     OverviewSection,
     RequirementsSection,
     SolutionsSection,
@@ -16,10 +15,6 @@ class PortfolioProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'client_name', 'slug')
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ('title', 'client_name')
-
-@admin.register(Hero)
-class HeroAdmin(admin.ModelAdmin):
-    list_display = ('__str__',)
 
 @admin.register(OverviewSection)
 class OverviewAdmin(admin.ModelAdmin):

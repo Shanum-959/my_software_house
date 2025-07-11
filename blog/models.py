@@ -34,11 +34,3 @@ class BlogSection(models.Model):
     def __str__(self):
         return f"{self.blog.title} - {self.heading_title}"
 
-class RecentPost(models.Model):
-    image = models.ImageField(upload_to='recent_posts/')
-    excerpt = models.CharField(max_length=300)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Recent Post #{self.id}"
-

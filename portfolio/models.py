@@ -11,13 +11,6 @@ class PortfolioProject(models.Model):
     def __str__(self):
         return self.title
 
-class Hero(models.Model):
-    project = models.OneToOneField(PortfolioProject, on_delete=models.CASCADE, related_name='hero')
-    background_image = models.ImageField(upload_to='hero/')
-
-    def __str__(self):
-        return "Hero Section"
-
 class OverviewSection(models.Model):
     project = models.ForeignKey(PortfolioProject, on_delete=models.CASCADE, related_name='overview_sections')
     title = models.CharField(max_length=100, default="Overview")

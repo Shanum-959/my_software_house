@@ -238,11 +238,13 @@ document.addEventListener('DOMContentLoaded', function () {
 // blog table of content
 
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const tocToggle = document.getElementById("toc-toggle");
-    const tocList = document.getElementById("toc-list");
-    const tocIcon = document.getElementById("toc-icon");
+document.addEventListener('DOMContentLoaded', function () {
+  const tocToggle = document.getElementById("toc-toggle");
+  const tocList = document.getElementById("toc-list");
+  const tocIcon = document.getElementById("toc-icon");
 
+  // Check all elements exist before applying toggle
+  if (tocToggle && tocList && tocIcon) {
     tocToggle.addEventListener("click", function () {
       if (tocList.style.display === "none" || tocList.style.display === "") {
         tocList.style.display = "block";
@@ -252,4 +254,5 @@ document.addEventListener('DOMContentLoaded', function () {
         tocIcon.textContent = "▼";
       }
     });
-  });
+  }
+});

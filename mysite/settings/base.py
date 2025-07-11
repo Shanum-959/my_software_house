@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     'services',
     'portfolio',
     'blog',
-    'contact',
     'careers',
     'accounts',
     'chatbot',

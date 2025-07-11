@@ -9,7 +9,7 @@
     <!--
     <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
     <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
-    <a href="{% url 'contact:contact_form' %}" class="btn btn-primary">Start Conversation</a>
+    <a href="{% url 'contact_form' %}" class="btn btn-primary">Start Conversation</a>
   </div>
   -->
 </section>
@@ -23,62 +23,68 @@
       <p class="body">We’d love to hear from you. Send us a message or reach out through the contact details below.</p>
     </div>
     <div class="row">
-    <!-- Contact Form -->
-    <div class="col-md-6 mb-4">
+       <!-- Contact Form -->
+        
+      <div class="col-lg-6 mb-4">
         <div class="card shadow-sm p-4 rounded-4 h-100">
-            
-            <!-- Heading -->
-            <h5 class="h5-small-title mb-4  border-bottom pb-2"style="color: var(--primary);">Send Us a Message</h5>
-            
-            <!-- Form -->
+            <h6 class="text-uppercase mb-2" style="color: var(--primary);">
+            <i class="bi bi-briefcase"></i> Let’s Connect!
+            </h6>
+            <h5 class="h5-small-title mb-3" style="color : black; ">Send us a message, and we’ll promptly discuss your project with you.</h5>            
+
             <form method="POST" novalidate>
             {% csrf_token %}
 
-            <!-- Name -->
-            <div class="mb-3">
-                <label for="{{ form.name.id_for_label }}" class="form-label">Your Name:</label>
-                {{ form.name }}
-                {% if form.name.errors %}
-                <div class="text-danger small">{{ form.name.errors }}</div>
-                {% endif %}
-            </div>
-            
-            <!-- Email -->
-            <div class="mb-3">
-                <label for="{{ form.email.id_for_label }}" class="form-label">Your Email:</label>
-                {{ form.email }}
-                {% if form.email.errors %}
-                <div class="text-danger small">{{ form.email.errors }}</div>
-                {% endif %}
-            </div>
+            <div class="row g-3">
+                <!-- Name -->
+                <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    {{ form.name }}
+                </div>
+                </div>
 
-            <!-- Subject -->
-            <div class="mb-3">
-                <label for="{{ form.subject.id_for_label }}" class="form-label">Your Query:</label>
-                {{ form.subject }}
-                {% if form.subject.errors %}
-                <div class="text-danger small">{{ form.subject.errors }}</div>
-                {% endif %}
-            </div>
+                <!-- Email -->
+                <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    {{ form.email }}
+                </div>
+                </div>
 
-            <!-- Message -->
-            <div class="mb-3">
-                <label for="{{ form.message.id_for_label }}" class="form-label">Your Message:</label>
-                {{ form.message }}
-                {% if form.message.errors %}
-                <div class="text-danger small">{{ form.message.errors }}</div>
-                {% endif %}
+                <!-- Phone -->
+                <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                    {{ form.phone }}
+                </div>
+                </div>
+
+                <!-- Company Name -->
+                <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-globe"></i></span>
+                    {{ form.company_name }}
+                </div>
+                </div>
+
+                <!-- Message -->
+                <div class="col-12">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
+                    {{ form.message }}
+                </div>
+                </div>
             </div>
 
             <!-- Button -->
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary ">Send Message</button>
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary">Send Message</button>
             </div>
             </form>
         </div>
-    </div>
-
-
+      </div>
+      
       <!-- Contact Info -->
       <div class="col-md-6 mb-4">
         <div class="card shadow-sm p-4">

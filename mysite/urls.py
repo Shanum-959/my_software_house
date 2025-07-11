@@ -37,7 +37,6 @@ urlpatterns = [
     path('services/', include('services.urls')),
     path('portfolio/', include('portfolio.urls')),
     path('blog/', include('blog.urls')),
-    path('contact/', include('contact.urls')),
     path('careers/', include('careers.urls')),
     path('accounts/', include('accounts.urls')),
 

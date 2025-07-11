@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import BlogPost, RecentPost
+from .models import BlogPost
 from django.db.models import Q
 
 def blog_list(request):
@@ -28,8 +28,11 @@ def blog_list(request):
 
 def blog_detail(request, slug):
     post = get_object_or_404(BlogPost, slug=slug)
-    recent = RecentPost.objects.order_by('-created_at')[:3]
+
+    # Get 3 latest blog posts excluding the current one
+    recent_posts = BlogPost.objects.exclude(id=post.id).order_by('-published_at')[:3]
+
     return render(request, 'blog/blog_list.html', {
         'post': post,
-        'recent': recent,
+        'recent_posts': recent_posts,
     })

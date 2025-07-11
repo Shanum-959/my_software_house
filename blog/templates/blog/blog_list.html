@@ -9,7 +9,7 @@
     <!--
     <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
     <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
-    <a href="{% url 'contact:contact_form' %}" class="btn btn-primary">Start Conversation</a>
+    <a href="{% url 'contact_form' %}" class="btn btn-primary">Start Conversation</a>
   </div>
   -->
 </section>
@@ -58,7 +58,13 @@
 <!-- Author Section -->
 <h5 class="h5-small-title text-uppercase mt-4">About the Author</h5>
 <div class="author d-flex align-items-center">
-  <img src="{{ post.author_image.url }}" alt="{{ post.author}}" class="rounded-circle me-3" />
+<img
+  src="{{ post.author_image.url }}"
+  alt="{{ post.author }}"
+  class="rounded-circle me-3"
+  style="height: 50px; width: 50px; border: 2px solid purple; object-fit: cover;"
+/>
+
   <div>
     <h6 class="mb-1">{{ post.author }}</h6>
     <p class="body mb-0" style="font-size: 0.9rem;">
@@ -82,15 +88,23 @@
 
   <!-- Recent Post -->
 
-  <h5 class="text-uppercase fw-bold">Recent Post</h5>
+<h4 class="mb-3">Recent Posts</h4>
+{% for recent in recent_posts %}
+  <a href="{% url 'blog:blog_detail' recent.slug %}" class="text-decoration-none text-dark">
+    <div class="recent-post">
+      {% if recent.image %}
+        <img
+          src="{{ recent.image.url }}"
+          alt="{{ recent.title }}"
+          class=" rounded-circle mb-2"
+          style="border: 2px solid purple;"
+        />
 
-{% for item in recent %}
-  <div class="recent-post">
-    <img src="{{ item.image.url }}" alt="Recent Post Image" class="img-fluid rounded mb-2" />
-    <p>{{ item.excerpt }}</p>
-  </div>
+      {% endif %}
+      <p>{{ recent.content|truncatechars:150 }}</p>
+    </div>
+  </a>
 {% endfor %}
-
 
 
   </div>
