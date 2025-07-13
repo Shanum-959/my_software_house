@@ -38,10 +38,10 @@ urlpatterns = [
     path('portfolio/', include('portfolio.urls')),
     path('blog/', include('blog.urls')),
     path('careers/', include('careers.urls')),
-    path('accounts/', include('accounts.urls')),
+    # path('accounts/', include('accounts.urls')),
 
     path('chatbot/', include('chatbot.urls')),
-    path('portal/', include('client_portal.urls')),
+    # path('portal/', include('client_portal.urls')),
 
     path('api/', include(router.urls)),
 

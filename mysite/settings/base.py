@@ -23,11 +23,11 @@ INSTALLED_APPS = [
     'portfolio',
     'blog',
     'careers',
-    'accounts',
+    # 'accounts',
     'chatbot',
     'rest_framework',
     'newsletter',
-    'client_portal',
+    # 'client_portal',
     'assets',
 ]
 
