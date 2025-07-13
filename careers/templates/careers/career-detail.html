@@ -7,6 +7,11 @@
 <section class="section careers-section" id="careers">
 
     <div class="career-detail-card">
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} mt-3">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
         <h3 class="h3-section ">{{ career.title }}</h3>
         <p class="body "><strong>Location:</strong> {{ career.location }}</p>
         <p class="body "><strong>Category:</strong> {{ career.category }}</p>
@@ -58,6 +63,18 @@
                     <li>Opportunities for professional development and growth</li>
                 </ul>
             </div>
+
+            <!-- AI Features Section -->
+            {% if ai_features %}
+            <div class="job-section mt-4">
+                <h5 class="h5-small-title">AI Features</h5>
+                <ul>
+                    {% for feature in ai_features %}
+                        <li>{{ feature.feature }} - {{ feature.status }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
 
             <div class="job-footer mt-3">
                 <a href="{% url 'careers:career-apply' career.pk %}" class="btn btn-primary apply">Apply Now</a>

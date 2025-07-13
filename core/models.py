@@ -1,4 +1,3 @@
-from django.db import models
 
 # Create your models here.
 from django.db import models
@@ -44,6 +43,7 @@ class SiteSetting(models.Model):
         return self.site_title
 
 
+from django.db import models
 
 class ContactMessage(models.Model):
     name = models.CharField(max_length=100)
