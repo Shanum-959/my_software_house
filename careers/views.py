@@ -55,7 +55,8 @@ def apply_view(request, pk):
             return redirect('careers:career-detail', pk=career.pk)  
         else:
             messages.error(request, 'Please fill all the errors below.') # You can change this to a success page
-    
+        # Add this line:
+            return render(request, 'careers/apply.html', {'form': form, 'career': career})
     else:
         form = JobApplicationForm()
     return render(request, 'careers/apply.html', {'form': form, 'career': career})

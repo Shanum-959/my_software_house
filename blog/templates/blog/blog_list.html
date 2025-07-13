@@ -19,9 +19,11 @@
     <!-- 8-column div -->
     <div class="col-md-8 p-4 bg-white">
       <!-- Centered Image -->
-<div class="text-center mb-3">
-<img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" style="max-height: 500px; object-fit: cover;">
-</div>
+      <div class="text-center mb-3">
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" style="max-height: 500px; object-fit: cover;">
+        {% endif %}
+      </div>
 
 
       <!-- Date (left aligned) -->
@@ -58,12 +60,15 @@
 <!-- Author Section -->
 <h5 class="h5-small-title text-uppercase mt-4">About the Author</h5>
 <div class="author d-flex align-items-center">
-<img
-  src="{{ post.author_image.url }}"
-  alt="{{ post.author }}"
-  class="rounded-circle me-3"
-  style="height: 50px; width: 50px; border: 2px solid purple; object-fit: cover;"
-/>
+  {% if post.author_image %}
+    <img
+      src="{{ post.author_image.url }}"
+      alt="{{ post.author }}"
+      class="rounded-circle me-3"
+      style="height: 50px; width: 50px; border: 2px solid purple; object-fit: cover;"
+    />
+  {% endif %}
+
 
   <div>
     <h6 class="mb-1">{{ post.author }}</h6>
@@ -111,11 +116,6 @@
     </div>
 
 </section>
-
-
-
-
-
 
 
 

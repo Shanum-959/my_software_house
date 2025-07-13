@@ -57,7 +57,9 @@
           <div class="card h-100 shadow-sm border-0">
 
             <!-- Blog Image -->
+            {% if blog.image %}
               <img src="{{ blog.image.url }}" class="card-img-top blog-image" alt="{{ blog.title }}">
+            {% endif %}
 
             <!-- Card Body -->
             <div class="card-body">
