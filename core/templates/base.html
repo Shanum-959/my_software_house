@@ -30,6 +30,29 @@
 
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
+
+    <style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #25D366;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+</style>
 </head>
 <body>
     {% include "header.html" %}
@@ -39,7 +62,14 @@
     <main>
         {% block content %}
         {% endblock %}
+        <a href="https://wa.me/923318449074" 
+        class="whatsapp-float" 
+        target="_blank" 
+        aria-label="Chat with us on WhatsApp">
+            <img src="{% static 'assets/images/whatsapp.png' %}" alt="WhatsApp Chat" />
+        </a>        
         <!-- Chat Widget -->
+<!--         
         <div class="chat-popup" id="chat-popup" role="dialog" aria-labelledby="chat-header" aria-hidden="true">
             <div class="chat-header">
                 <h3 id="chat-header">Exionix Chat</h3>
@@ -55,7 +85,7 @@
             </div>
         </div>
         <button id="chat-toggle" aria-label="Toggle chat">💬</button>
-
+-->
     </main>
         {% include "footer.html" %}
 
