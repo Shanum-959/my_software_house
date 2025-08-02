@@ -1,52 +1,70 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- HERO SECTION -->
-<section class="hero position-relative d-flex align-items-center" style="background: url('{% static 'assets/images/portfolio.jpg' %}') center/cover no-repeat; height: 100vh;">
-  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
-  <div class="container position-relative text-start" style="z-index: 1; max-width: 700px;">
-    <!--
-    <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
-    <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
-    <a href="{% url 'contact_form' %}" class="btn btn-primary">Start Conversation</a>
-  </div>
-  -->
-</section>
+<main>
 
-
-<!-- PORTFOLIO SECTION -->
-<section class="section py-5" id="portfolio">
-  <div class="container">
-    
-    <!-- Section Heading -->
-    <div class="text-center mb-4">
-      <h2 class="h3-section" style="color: var(--primary);">My Work</h2>
-      <p class="body text-muted">Visual showcase of recent projects</p>
+  <!-- HERO SECTION -->
+  <section class="hero position-relative d-flex align-items-center" 
+           style="background: url('{% static 'assets/images/portfolio.jpg' %}') center/cover no-repeat; height: 100vh;"
+           role="img" aria-label="Background image showing portfolio theme">
+    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);" aria-hidden="true"></div>
+    <div class="container position-relative text-start" style="z-index: 1; max-width: 700px;">
+      <!--
+      <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
+      <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
+      <a href="{% url 'contact_form' %}" class="btn btn-primary">Start Conversation</a>
+      -->
     </div>
+  </section>
 
-    <div class="row g-4">
-      {% for project in projects %}
-      <div class="col-md-6">
-        <div class="card rounded-3 w-100 overflow-hidden shadow">
-          <a href="{% url 'portfolio:portfolio_detail' slug=project.slug %}" class="text-decoration-none text-dark">
+  <!-- PORTFOLIO SECTION -->
+  <section class="section py-5" id="portfolio" aria-labelledby="portfolio-heading">
+    <div class="container">
+      
+      <!-- Section Heading -->
+      <div class="text-center mb-4">
+        <h2 id="portfolio-heading" class="h3-section" style="color: var(--primary);">My Work</h2>
+        <p class="body text-muted">Visual showcase of recent projects</p>
+      </div>
 
+      <div class="row g-4">
+        {% for project in projects %}
+        <div class="col-md-6">
+          <article class="card rounded-3 w-100 overflow-hidden shadow" role="group" aria-labelledby="project-title-{{ forloop.counter }}">
+            
             {% if project.image %}
-              <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+              <a href="{% url 'portfolio:portfolio_detail' slug=project.slug %}" 
+                 class="d-block" 
+                 aria-describedby="project-desc-{{ forloop.counter }}">
+                <img src="{{ project.image.url }}" 
+                     alt="{{ project.title }}" 
+                     class="img-fluid w-100" 
+                     style="height: 400px; object-fit: cover;">
+              </a>
             {% endif %}
+
             <div class="card-body">
-              <h5 class="card-title mb-1">{{ project.title }}</h5>
-              <p class="body mb-2">{{ project.description }}</p>
+              <h3 id="project-title-{{ forloop.counter }}" class="card-title mb-1">{{ project.title }}</h3>
+              <p id="project-desc-{{ forloop.counter }}" class="body mb-2">{{ project.description }}</p>
+              
               {% if project.project_url %}
-                <a href="{{ project.project_url }}" target="_blank" class="btn btn-sm btn-primary">View Project</a>
+                <a href="{{ project.project_url }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-sm btn-primary"
+                   aria-label="View external project {{ project.title }}">
+                  View Project
+                </a>
               {% endif %}
             </div>
-          </a>
+
+          </article>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
+
     </div>
+  </section>
 
-  </div>
-</section>
-
+</main>
 {% endblock %}

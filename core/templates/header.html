@@ -1,12 +1,12 @@
 {% load static %}
 
 <!-- Bootstrap Header -->
-<header id="navbar" class="navbar navbar-expand-lg navbar-light  fixed-top">
+<header id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top" role="banner" aria-label="Primary navigation">
   <div class="container">
     
     <!-- Logo -->
     <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{% url 'home' %}">
-      <img src="{% static 'assets/images/exionix-logo.png' %}" alt="Logo" >
+      <img src="{% static 'assets/images/exionix-logo.png' %}" alt="Exionix Tech Logo">
     </a>
 
     <!-- Toggle button for mobile view -->
@@ -15,36 +15,37 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-
     <!-- Navbar links -->
-    <div class="collapse navbar-collapse justify-content-center" id="navLinks">
+    <nav class="collapse navbar-collapse justify-content-center" id="navLinks" role="navigation" aria-label="Main menu">
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link body" href="{% url 'home' %}">Home</a>
+          <a class="nav-link body" href="{% url 'home' %}" aria-current="{% if request.path == '/' %}page{% endif %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link body" href="{% url 'services:services_home' %}">Services</a>
+          <a class="nav-link body" href="{% url 'services:services_home' %}" aria-current="{% if request.path == '/services/' %}page{% endif %}">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link body" href="{% url 'portfolio:portfolio_home' %}">Portfolio</a>
+          <a class="nav-link body" href="{% url 'portfolio:portfolio_home' %}" aria-current="{% if request.path == '/portfolio/' %}page{% endif %}">Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link body" href="{% url 'blog:blog_home' %}">Blog</a>
+          <a class="nav-link body" href="{% url 'blog:blog_home' %}" aria-current="{% if request.path == '/blog/' %}page{% endif %}">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link body" href="{% url 'about' %}">About</a>
+          <a class="nav-link body" href="{% url 'about' %}" aria-current="{% if request.path == '/about/' %}page{% endif %}">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link body" href="{% url 'careers:careers-list' %}">Careers</a>
+          <a class="nav-link body" href="{% url 'careers:careers-list' %}" aria-current="{% if request.path == '/careers/' %}page{% endif %}">Careers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link body" href="{% url 'contact_form' %}">Contact</a>
+          <a class="nav-link body" href="{% url 'contact_form' %}" aria-current="{% if request.path == '/contact/' %}page{% endif %}">Contact</a>
         </li>
       </ul>
-    </div>
+    </nav>
+
     <!-- Login button -->
     <div class="d-flex">
-        <a class="btn  btn-outline-primary" href="{% url 'contact_form' %}">Get a qoute</a></div>
+        <a class="btn btn-outline-primary" href="{% url 'contact_form' %}">Get a quote</a>
+    </div>
 
   </div>
 </header>

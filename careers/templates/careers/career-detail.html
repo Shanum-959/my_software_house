@@ -2,85 +2,87 @@
 {% load static %}
 {% block content %}
 
+<section class="section careers-section" id="careers" aria-labelledby="career-title">
 
-<!-- templates/careers/career-detail.html -->
-<section class="section careers-section" id="careers">
+  <div class="career-detail-card">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mt-3" role="alert" aria-live="polite">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
 
-    <div class="career-detail-card">
-        {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} mt-3">{{ message }}</div>
-        {% endfor %}
-        {% endif %}
-        <h3 class="h3-section ">{{ career.title }}</h3>
-        <p class="body "><strong>Location:</strong> {{ career.location }}</p>
-        <p class="body "><strong>Category:</strong> {{ career.category }}</p>
-        <p class="body "><strong>Job Type:</strong> {{ career.job_type }}</p>
-        <p class="body "><strong>Work Mode:</strong> {{ career.work_mode }}</p>
-        <p class="body "><strong>Posted At:</strong> {{ career.posted_at }}</p>
-        
-        <hr>
-    
-        <div class="career-detail-container">
-            <div class="job-header mt-3">
-                <p class="body "><a href="{% url 'careers:careers-list' %}">Jobs</a> / {{ career.title }}</p>
-                <h3 class="h3-section ">{{ career.title }}</h3>
-                <p class="body ">{{ career.location }} | {{ career.work_mode }}</p>
+    <h3 class="h3-section" id="career-title">{{ career.title }}</h3>
+    <p class="body"><strong>Location:</strong> <span aria-label="Job location">{{ career.location }}</span></p>
+    <p class="body"><strong>Category:</strong> <span aria-label="Job category">{{ career.category }}</span></p>
+    <p class="body"><strong>Job Type:</strong> <span aria-label="Type of job">{{ career.job_type }}</span></p>
+    <p class="body"><strong>Work Mode:</strong> <span aria-label="Work mode">{{ career.work_mode }}</span></p>
+    <p class="body"><strong>Posted At:</strong> <time datetime="{{ career.posted_at|date:'Y-m-d' }}">{{ career.posted_at }}</time></p>
 
-                <div class="job-actions mt-3">
-                    <a href="{% url 'careers:career-apply' career.pk %}" class="btn btn-primary apply">Apply Now</a>
-                </div>
-            </div>
+    <hr>
 
-            <div class="job-section mt-3">
-                <h5 class="h5-small-title">About the job</h5>
-                <p class="body ">{{ career.description|linebreaks }}</p>
-            </div>
+    <div class="career-detail-container">
+      <div class="job-header mt-3">
+        <p class="body">
+          <a href="{% url 'careers:careers-list' %}" aria-label="Back to jobs list">Jobs</a> / <span aria-current="page">{{ career.title }}</span>
+        </p>
+        <h3 class="h3-section">{{ career.title }}</h3>
+        <p class="body">{{ career.location }} | {{ career.work_mode }}</p>
 
-            <div class="job-section mt-3">
-                <h5 class="h5-small-title">Responsibilities</h5>
-                <ul>
-                    {% for item in career.requirements.splitlines %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="job-actions mt-3">
+          <a href="{% url 'careers:career-apply' career.pk %}" class="btn btn-primary apply" aria-label="Apply for {{ career.title }}">Apply Now</a>
+        </div>
+      </div>
 
-            <div class="job-section mt-3">
-                <h5 class="h5-small-title">Qualifications</h5>
-                <ul>
-                {% for item in career.qualifications.splitlines %}
-                    <li>{{ item }}</li>
-                {% endfor %}
-                </ul>
-            </div>
+      <div class="job-section mt-3" aria-labelledby="about-job">
+        <h5 class="h5-small-title" id="about-job">About the job</h5>
+        <p class="body">{{ career.description|linebreaks }}</p>
+      </div>
 
-            <div class="job-section mt-3">
-                <h5 class="h5-small-title">Benefits</h5>
-                <ul>
-                    <li>Competitive salary and benefits package</li>
-                    <li>Flexible work hours and remote work options</li>
-                    <li>Opportunities for professional development and growth</li>
-                </ul>
-            </div>
+      <div class="job-section mt-3" aria-labelledby="job-responsibilities">
+        <h5 class="h5-small-title" id="job-responsibilities">Responsibilities</h5>
+        <ul>
+          {% for item in career.requirements.splitlines %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
 
-            <!-- AI Features Section -->
-            {% if ai_features %}
-            <div class="job-section mt-4">
-                <h5 class="h5-small-title">AI Features</h5>
-                <ul>
-                    {% for feature in ai_features %}
-                        <li>{{ feature.feature }} - {{ feature.status }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
+      <div class="job-section mt-3" aria-labelledby="job-qualifications">
+        <h5 class="h5-small-title" id="job-qualifications">Qualifications</h5>
+        <ul>
+          {% for item in career.qualifications.splitlines %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
 
-            <div class="job-footer mt-3">
-                <a href="{% url 'careers:career-apply' career.pk %}" class="btn btn-primary apply">Apply Now</a>
-            </div>
-        </div>  
-    </div>  
+      <div class="job-section mt-3" aria-labelledby="job-benefits">
+        <h5 class="h5-small-title" id="job-benefits">Benefits</h5>
+        <ul>
+          <li>Competitive salary and benefits package</li>
+          <li>Flexible work hours and remote work options</li>
+          <li>Opportunities for professional development and growth</li>
+        </ul>
+      </div>
+
+      {% if ai_features %}
+        <div class="job-section mt-4" aria-labelledby="ai-features">
+          <h5 class="h5-small-title" id="ai-features">AI Features</h5>
+          <ul>
+            {% for feature in ai_features %}
+              <li>{{ feature.feature }} - {{ feature.status }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <div class="job-footer mt-3">
+        <a href="{% url 'careers:career-apply' career.pk %}" class="btn btn-primary apply" aria-label="Apply for {{ career.title }}">Apply Now</a>
+      </div>
+    </div>
+  </div>
 
 </section>
 
