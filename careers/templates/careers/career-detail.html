@@ -31,7 +31,7 @@
         <p class="body">{{ career.location }} | {{ career.work_mode }}</p>
 
         <div class="job-actions mt-3">
-          <a href="{% url 'careers:career-apply' career.pk %}" class="btn btn-primary apply" aria-label="Apply for {{ career.title }}">Apply Now</a>
+          <a href="{% url 'careers:career-apply' career.slug %}" class="btn btn-primary apply" aria-label="Apply for {{ career.title }}">Apply Now</a>
         </div>
       </div>
 
@@ -79,7 +79,7 @@
       {% endif %}
 
       <div class="job-footer mt-3">
-        <a href="{% url 'careers:career-apply' career.pk %}" class="btn btn-primary apply" aria-label="Apply for {{ career.title }}">Apply Now</a>
+        <a href="{% url 'careers:career-apply' career.slug %}" class="btn btn-primary apply" aria-label="Apply for {{ career.title }}">Apply Now</a>
       </div>
     </div>
   </div>

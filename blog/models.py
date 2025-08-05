@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=255)
@@ -20,7 +21,11 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
-
+    
+    def get_absolute_url(self):
+        # 'blog_detail' tumhare urls.py me blog detail ka URL name hona chahiye
+        return reverse('blog:blog_detail', kwargs={'slug': self.slug})
+    
 class BlogSection(models.Model):
     blog = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='sections')
     heading_id = models.CharField(max_length=100, help_text="Used in <a href='#id'> and <h4 id='...'>")

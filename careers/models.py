@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+from django.urls import reverse
 
 JOB_TYPES = (
     ('Full-time', 'Full-time'),
@@ -15,6 +17,7 @@ WORK_MODES = (
 
 class Career(models.Model):
     title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True)  # new field for URLs   
     location = models.CharField(max_length=100)
     category = models.CharField(max_length=100)
     job_type = models.CharField(max_length=20, choices=JOB_TYPES)
@@ -24,11 +27,19 @@ class Career(models.Model):
     qualifications = models.TextField(blank=True)  # <-- add this line
     posted_at = models.DateTimeField(auto_now_add=True)
     
-
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
-    
+
+ 
+    def get_absolute_url(self):
+        return reverse('careers:career-detail', kwargs={'slug': self.slug})
+
+       
 class JobApplication(models.Model):
     career = models.ForeignKey('Career', on_delete=models.CASCADE)
     full_name = models.CharField(max_length=100)

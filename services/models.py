@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+from django.urls import reverse
 
 class Service(models.Model):
     title = models.CharField(max_length=100)
@@ -16,6 +18,9 @@ class Service(models.Model):
     def __str__(self):
         return self.title or "Unnamed Service"
 
+    def get_absolute_url(self):
+        return reverse("services:services_detail", kwargs={"slug": self.slug})
+    
 # 🔸 Hero Section
 class Hero(models.Model):
     service = models.OneToOneField(Service, on_delete=models.CASCADE, related_name='hero_section')

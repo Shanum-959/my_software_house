@@ -27,8 +27,8 @@ def careers_list_view(request):
         'categories': categories,
     })
 
-def career_detail_view(request, pk):
-    career = get_object_or_404(Career, pk=pk)
+def career_detail_view(request, slug):
+    career = get_object_or_404(Career, slug=slug)
 
     ai_features = [
         {'feature': 'Resume Parser', 'endpoint': '/api/parse_resume/', 'status': '✅'},
@@ -43,8 +43,8 @@ def career_detail_view(request, pk):
         'career': career,
         'ai_features': ai_features,
     })
-def apply_view(request, pk):
-    career = get_object_or_404(Career, pk=pk)
+def apply_view(request, slug):
+    career = get_object_or_404(Career, slug=slug)
     if request.method == 'POST':
         form = JobApplicationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -52,7 +52,7 @@ def apply_view(request, pk):
             application.career = career
             application.save()
             messages.success(request, 'Your application has been submitted successfully.')
-            return redirect('careers:career-detail', pk=career.pk)  
+            return redirect('careers:career-detail', slug=career.slug)  
         else:
             messages.error(request, 'Please fill all the errors below.') # You can change this to a success page
         # Add this line:

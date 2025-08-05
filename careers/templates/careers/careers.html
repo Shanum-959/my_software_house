@@ -88,7 +88,7 @@
           <p class="small mb-3">{{ job.description|truncatewords:16 }}</p>
 
           <!-- Apply button -->
-          <a href="{% url 'careers:career-detail' job.pk %}" class="btn btn-sm btn-primary" aria-label="Apply for {{ job.title }}">Apply Now</a>
+          <a href="{% url 'careers:career-detail' job.slug %}" class="btn btn-sm btn-primary" aria-label="Apply for {{ job.title }}">Apply Now</a>
         </div>
       </div>
       {% empty %}
