@@ -237,21 +237,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // blog table of content
 
+// TOC toggle for screen readers and keyboard
 
-document.addEventListener('DOMContentLoaded', function () {
-  const tocToggle = document.getElementById("toc-toggle");
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("toc-toggle");
   const tocList = document.getElementById("toc-list");
   const tocIcon = document.getElementById("toc-icon");
 
-  // Check all elements exist before applying toggle
-  if (tocToggle && tocList && tocIcon) {
-    tocToggle.addEventListener("click", function () {
-      if (tocList.style.display === "none" || tocList.style.display === "") {
-        tocList.style.display = "block";
-        tocIcon.textContent = "▲";
-      } else {
-        tocList.style.display = "none";
-        tocIcon.textContent = "▼";
+  if (toggle && tocList) {
+    toggle.addEventListener("click", () => {
+      const isVisible = tocList.style.display === "block";
+      tocList.style.display = isVisible ? "none" : "block";
+      toggle.setAttribute("aria-expanded", !isVisible);
+      tocIcon.textContent = isVisible ? "▼" : "▲";
+    });
+
+    // Keyboard toggle
+    toggle.addEventListener("keypress", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggle.click();
       }
     });
   }

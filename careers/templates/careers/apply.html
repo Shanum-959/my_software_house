@@ -1,50 +1,86 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section class="section">
+<section class="section" role="region" aria-labelledby="career-application-title">
   <div class="container">
     <div class="mx-auto bg-white shadow rounded p-5" style="max-width: 600px;">
-      <h3 class="h3-section text-center mb-4">Apply for {{ career.title }}</h3>
+      <h3 id="career-application-title" class="h3-section text-center mb-4">
+        Apply for {{ career.title }}
+      </h3>
 
       {% if messages %}
         {% for message in messages %}
-          <div class="alert alert-{{ message.tags }}">
+          <div class="alert alert-{{ message.tags }}" role="alert" aria-live="polite">
             {{ message }}
           </div>
         {% endfor %}
       {% endif %}
-  
-      <form method="post" enctype="multipart/form-data" novalidate>
+
+      <form method="post" enctype="multipart/form-data" novalidate aria-describedby="form-instructions">
         {% csrf_token %}
+        <p id="form-instructions" class="visually-hidden">
+          All fields are required unless marked optional. Use Tab to navigate.
+        </p>
+
         <div class="mb-3">
-          {{ form.full_name.label_tag }} {{ form.full_name }}
-          {{ form.full_name.errors }}
+          <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
+          {{ form.full_name }}
+          {% for error in form.full_name.errors %}
+            <div class="text-danger" role="alert">{{ error }}</div>
+          {% endfor %}
         </div>
+
         <div class="mb-3">
-          {{ form.email.label_tag }} {{ form.email }}
-          {{ form.email.errors }}
+          <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+          {{ form.email }}
+          {% for error in form.email.errors %}
+            <div class="text-danger" role="alert">{{ error }}</div>
+          {% endfor %}
         </div>
+
         <div class="mb-3">
-          {{ form.phone.label_tag }} {{ form.phone }}
-          {{ form.phone.errors }}
+          <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+          {{ form.phone }}
+          {% for error in form.phone.errors %}
+            <div class="text-danger" role="alert">{{ error }}</div>
+          {% endfor %}
         </div>
+
         <div class="mb-3">
-          {{ form.linkedin_url.label_tag }} {{ form.linkedin_url }}
-          {{ form.linkedin.errors }}
+          <label for="{{ form.linkedin_url.id_for_label }}">{{ form.linkedin_url.label }}</label>
+          {{ form.linkedin_url }}
+          {% for error in form.linkedin_url.errors %}
+            <div class="text-danger" role="alert">{{ error }}</div>
+          {% endfor %}
         </div>
+
         <div class="mb-3">
-          {{ form.portfolio_url.label_tag }} {{ form.portfolio_url }}
-          {{ form.portfolio.errors }}
+          <label for="{{ form.portfolio_url.id_for_label }}">{{ form.portfolio_url.label }}</label>
+          {{ form.portfolio_url }}
+          {% for error in form.portfolio_url.errors %}
+            <div class="text-danger" role="alert">{{ error }}</div>
+          {% endfor %}
         </div>
+
         <div class="mb-3">
-          {{ form.resume.label_tag }} {{ form.resume }}
-          {{ form.resume.errors }}
+          <label for="{{ form.resume.id_for_label }}">{{ form.resume.label }}</label>
+          {{ form.resume }}
+          {% for error in form.resume.errors %}
+            <div class="text-danger" role="alert">{{ error }}</div>
+          {% endfor %}
         </div>
+
         <div class="mb-3">
-          {{ form.cover_letter.label_tag }} {{ form.cover_letter }}
-          {{ form.cover_letter.errors }}
+          <label for="{{ form.cover_letter.id_for_label }}">{{ form.cover_letter.label }}</label>
+          {{ form.cover_letter }}
+          {% for error in form.cover_letter.errors %}
+            <div class="text-danger" role="alert">{{ error }}</div>
+          {% endfor %}
         </div>
-        <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+
+        <button type="submit" class="btn btn-primary w-100" aria-label="Submit your application form">
+          Submit Application
+        </button>
       </form>
     </div>
   </div>

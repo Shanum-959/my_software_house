@@ -3,68 +3,63 @@
 {% block content %}
 
 <!-- HERO SECTION -->
-<section class="hero position-relative d-flex align-items-center" style="background: url('{% static 'assets/images/hero.jpg' %}') center/cover no-repeat; height: 100vh;">
+<section class="hero position-relative d-flex align-items-center" 
+         style="background: url('{% static 'assets/images/hero.jpg' %}') center/cover no-repeat; height: 100vh;"
+         role="region" aria-label="Hero section showcasing company vision">
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
   <div class="container position-relative text-start" style="z-index: 1; max-width: 700px;">
     <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
     <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
-    <a href="{% url 'contact_form' %}" class="btn btn-primary">Start Conversation</a>
+    <a href="{% url 'contact_form' %}" class="btn btn-primary" role="button" aria-label="Start conversation with Exionix Tech">Start Conversation</a>
   </div>
 </section>
 
 <!-- TRUSTED COMPANIES SECTION -->
-<section class="section bg-white py-5">
+<section class="section bg-white py-5" role="region" aria-label="Trusted companies logos">
   <div class="container text-center">
-    <h5 class="small-label mb-4" style="color: var(--primary);">Trusted by Innovative Brands</h5>
+    <h2 class="small-label mb-4" style="color: var(--primary);">Trusted by Innovative Brands</h2>
 
-    <div class="marquee-container">
+    <div class="marquee-container" aria-live="off" aria-relevant="additions removals" aria-atomic="false" tabindex="0">
       <div class="marquee-content">
         <!-- 👇 Repeat logos here -->
-          <!-- Repeat this block for more logos -->
-          <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="80">
-          <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="80">
-          <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="80">
-          <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="80">
-          <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="80">
-          <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="80">
-          <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="80">
-          <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="80">
-          <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="80">
-          <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="80">
+        <img src="{% static 'assets/images/company1.png' %}" alt="Company 1 logo" height="80" />
+        <img src="{% static 'assets/images/company2.png' %}" alt="Company 2 logo" height="80" />
+        <img src="{% static 'assets/images/company3.png' %}" alt="Company 3 logo" height="80" />
+        <img src="{% static 'assets/images/company4.png' %}" alt="Company 4 logo" height="80" />
+        <img src="{% static 'assets/images/company5.png' %}" alt="Company 5 logo" height="80" />
+        <img src="{% static 'assets/images/company6.png' %}" alt="Company 6 logo" height="80" />
+        <img src="{% static 'assets/images/company7.png' %}" alt="Company 7 logo" height="80" />
+        <img src="{% static 'assets/images/company8.png' %}" alt="Company 8 logo" height="80" />
+        <img src="{% static 'assets/images/company9.png' %}" alt="Company 9 logo" height="80" />
+        <img src="{% static 'assets/images/company10.png' %}" alt="Company 10 logo" height="80" />
 
-          <!-- 🔁 Duplicate for seamless scrolling -->
-
-          <img src="{% static 'assets/images/company1.png' %}" alt="Company 1" height="80">
-          <img src="{% static 'assets/images/company2.png' %}" alt="Company 2" height="80">
-          <img src="{% static 'assets/images/company3.png' %}" alt="Company 3" height="80">
-          <img src="{% static 'assets/images/company4.png' %}" alt="Company 4" height="80">
-          <img src="{% static 'assets/images/company5.png' %}" alt="Company 5" height="80">
-          <img src="{% static 'assets/images/company6.png' %}" alt="Company 6" height="80">
-          <img src="{% static 'assets/images/company7.png' %}" alt="Company 7" height="80">
-          <img src="{% static 'assets/images/company8.png' %}" alt="Company 8" height="80">
-          <img src="{% static 'assets/images/company9.png' %}" alt="Company 9" height="80">
-          <img src="{% static 'assets/images/company10.png' %}" alt="Company 10" height="80">
-
-        </div>
+        <!-- 🔁 Duplicate for seamless scrolling -->
+        <img src="{% static 'assets/images/company1.png' %}" alt="Company 1 logo" height="80" />
+        <img src="{% static 'assets/images/company2.png' %}" alt="Company 2 logo" height="80" />
+        <img src="{% static 'assets/images/company3.png' %}" alt="Company 3 logo" height="80" />
+        <img src="{% static 'assets/images/company4.png' %}" alt="Company 4 logo" height="80" />
+        <img src="{% static 'assets/images/company5.png' %}" alt="Company 5 logo" height="80" />
+        <img src="{% static 'assets/images/company6.png' %}" alt="Company 6 logo" height="80" />
+        <img src="{% static 'assets/images/company7.png' %}" alt="Company 7 logo" height="80" />
+        <img src="{% static 'assets/images/company8.png' %}" alt="Company 8 logo" height="80" />
+        <img src="{% static 'assets/images/company9.png' %}" alt="Company 9 logo" height="80" />
+        <img src="{% static 'assets/images/company10.png' %}" alt="Company 10 logo" height="80" />
+      </div>
     </div>
   </div>
 </section>
 
 
-
 <!-- OUR SERVICES SECTION -->
 <section class="section our-services">
   <div class="container text-center">
-    <h3 class="h3-section mb-4" style="color: var(--primary);">Our Services</h3>
+    <h3 class="h3-section mb-4" style="color: var(--primary);">Our Services</h3>    
     <p class="body text-muted mb-5">We provide full-cycle digital solutions to turn your ideas into successful products.</p>
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card">
           <div class="card-content text-start">
             <div class="mb-3">
-
-
-
               <svg class="svg-icon" width="60px" height="60px" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
               <defs>
 
@@ -122,7 +117,6 @@
       <a href="{% url 'services:services_home' %}" class="btn btn-primary">View all Services</a>
     </div>
   </div>
-  
 </section>
 
 
@@ -619,71 +613,77 @@
   </div>
 </section>
 
-
-
 <!-- BLOG SECTION -->
-<section class="section blog">
+<section class="section blog" aria-labelledby="blog-heading">
   <div class="container">
-    <h3 class="h3-section text-center mb-5" style="color: var(--primary);">Latest Blog Posts</h3>
+    <h3 id="blog-heading" class="h3-section text-center mb-3" style="color: var(--primary);">Latest Blog Posts</h3>
     <p class="body text-center text-muted mb-5">Get the latest trends, case studies, and practical tips from the Exionix team.</p>
+
     <div class="row">
       <!-- Left Blog -->
       <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="{% static 'assets/images/web.jpg' %}" class="card-img-top blog-image" alt="Blog 1">
+        <article class="card h-100 shadow-sm border-0" aria-labelledby="blog1-title">
+          <img src="{% static 'assets/images/web.jpg' %}" class="card-img-top blog-image" alt="Illustration of modern web technologies" />
           <div class="card-body">
-            <h5 class="h5-small-title">Latest Trends in Web Application Development in 2025</h5>
-            <p class="body text-muted">The web development landscape is constantly evolving. In 2025, developers are adopting newer technologies to build faster, more secure, and user-friendly web applications.
-            With the rise of AI-driven tools, low-code/no-code platforms, and advanced frameworks like Next.js and SvelteKit, the development process has become more streamlined than ever. Progressive Web Apps (PWAs), serverless architecture, and edge computing are also gaining traction, ensuring better scalability and performance. Additionally, there is a strong emphasis on accessibility, responsive design, and user privacy.  </p>
-            <a href="#" class="btn btn-sm btn-primary">Read More</a>
+            <h5 id="blog1-title" class="h5-small-title">Latest Trends in Web Application Development in 2025</h5>
+            <p class="body text-muted">
+              The web development landscape is evolving. In 2025, developers are adopting AI-driven tools, no-code platforms, and advanced frameworks like Next.js...
+            </p>
+            <a href="#" class="btn btn-sm btn-primary" aria-label="Read more about Web Application Trends in 2025">Read More</a>
           </div>
-        </div>
+        </article>
       </div>
+
       <!-- Right Blogs -->
       <div class="col-md-6">
         <div class="d-flex flex-column gap-4">
-          <div class="card shadow-sm border-0">
+          <!-- Blog 2 -->
+          <article class="card shadow-sm border-0" aria-labelledby="blog2-title">
             <div class="row g-0">
               <div class="col-4">
-                <img src="{% static 'assets/images/ai.jpeg' %}" class="blog-image img-fluid rounded-start" alt="Blog 2">
+                <img src="{% static 'assets/images/ai.jpeg' %}" class="blog-image img-fluid rounded-start" alt="Artificial Intelligence in software development" />
               </div>
               <div class="col-8">
                 <div class="card-body">
-                  <h6 class="card-title fw-semibold">How Artificial Intelligence is Transforming the Software Industry</h6>
-                  <p class="body card-text small text-muted">Artificial Intelligence (AI) is revolutionizing software development and business operations alike..... </p>
-                  <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                  <h6 id="blog2-title" class="card-title fw-semibold">How Artificial Intelligence is Transforming the Software Industry</h6>
+                  <p class="body card-text small text-muted">AI is revolutionizing software development and business operations...</p>
+                  <a href="#" class="btn btn-sm btn-primary" aria-label="Read more about AI in Software Industry">Read More</a>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card shadow-sm border-0">
+          </article>
+
+          <!-- Blog 3 -->
+          <article class="card shadow-sm border-0" aria-labelledby="blog3-title">
             <div class="row g-0">
               <div class="col-4">
-                <img src="{% static 'assets/images/cloud.jpeg' %}" class="blog-image img-fluid rounded-start" alt="Blog 3">
+                <img src="{% static 'assets/images/cloud.jpeg' %}" class="blog-image img-fluid rounded-start" alt="Cloud infrastructure and services illustration" />
               </div>
               <div class="col-8">
                 <div class="card-body">
-                  <h6 class="card-title fw-semibold">Cloud Computing: Benefits and Challenges for Modern Businesses</h6>
-                  <p class="body card-text small text-muted">Cloud computing continues to reshape how businesses operate by offering scalable, flexible, and cost-effective IT solutions.....</p>
-                  <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                  <h6 id="blog3-title" class="card-title fw-semibold">Cloud Computing: Benefits and Challenges for Modern Businesses</h6>
+                  <p class="body card-text small text-muted">Cloud computing reshapes business IT through scalable solutions...</p>
+                  <a href="#" class="btn btn-sm btn-primary" aria-label="Read more about Cloud Computing Benefits">Read More</a>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card shadow-sm border-0">
+          </article>
+
+          <!-- Blog 4 -->
+          <article class="card shadow-sm border-0" aria-labelledby="blog4-title">
             <div class="row g-0">
               <div class="col-4">
-                <img src="{% static 'assets/images/api.jpg' %}" class="blog-image img-fluid rounded-start" alt="Blog 3">
+                <img src="{% static 'assets/images/api.jpg' %}" class="blog-image img-fluid rounded-start" alt="API-first software development concept" />
               </div>
               <div class="col-8">
                 <div class="card-body">
-                  <h6 class="card-title fw-semibold">The Rise of API-First Development and Its Impact on Software Solutions</h6>
-                  <p class="body card-text small text-muted">API-first development has become a strategic approach in modern software design..... </p>
-                  <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                  <h6 id="blog4-title" class="card-title fw-semibold">The Rise of API-First Development and Its Impact on Software Solutions</h6>
+                  <p class="body card-text small text-muted">API-first development is becoming the default strategy in software architecture...</p>
+                  <a href="#" class="btn btn-sm btn-primary" aria-label="Read more about API-First Development">Read More</a>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -691,19 +691,24 @@
 </section>
 
 
-
-
 <!-- OUR PROCESS TO DELIVERY SECTION -->
-<section class="section our-process">
+<section class="section our-process" aria-labelledby="our-process-heading">
   <div class="container text-center">
-    <h3 class="h3-section mb-4" style="color: var(--primary);">Our Process to Delivery Innovation</h3>
+    <h3 id="our-process-heading" class="h3-section mb-4" style="color: var(--primary);">
+      Our Process to Delivery Innovation
+    </h3>
     <p class="body text-muted mb-5">
       A streamlined workflow that ensures on-time, quality results for every project.
     </p>
 
     <!-- Image Section -->
     <div class="process-image">
-      <img src="{% static 'assets/images/process.png' %}" alt="Our Process Illustration" class="img-fluid" style="width:1100px;">
+      <img 
+        src="{% static 'assets/images/process.png' %}" 
+        alt="Illustration showing the steps involved in our project delivery process" 
+        class="img-fluid" 
+        style="width:1100px;"
+      >
     </div>
   </div>
 </section>
@@ -892,10 +897,10 @@
 </section>
 
 <!-- Testimonial Section -->
-<section class="section testimonial-split-section py-5">
+<section class="section testimonial-split-section py-5" role="region" aria-label="Client Testimonials">
   <div class="container">
     <div class="row align-items-center g-4">
-      
+
       <!-- Left: Why Trust Us -->
       <div class="col-md-5">
         <div class="why-trust-box p-4 rounded-4 shadow bg-white h-100">
@@ -913,13 +918,13 @@
 
       <!-- Right: Testimonial Slider -->
       <div class="col-md-7">
-        <div class="swiper testimonial-swiper">
+        <div class="swiper testimonial-swiper" aria-live="polite">
           <div class="swiper-wrapper">
 
             <!-- Slide 1 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 6">
               <div class="testimonial-slide p-4 bg-white rounded-4 shadow-sm text-center">
-                <div class="quote-icon mb-3">❝</div>
+                <div class="quote-icon mb-3" aria-hidden="true">❝</div>
                 <p class="review-text">“It felt like working with a global agency — but more personal.”</p>
                 <p class="body">Exionix Tech understood my goals better than I could explain. Their communication was smooth, timelines were met, and the final product was sleek, fast, and intuitive.</p>
                 <img src="{% static 'assets/images/client1.jpg' %}" alt="Daniel Foster" class="client-img mt-4 mb-2">
@@ -929,11 +934,11 @@
             </div>
 
             <!-- Slide 2 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 6">
               <div class="testimonial-slide p-4 bg-white rounded-4 shadow-sm text-center">
-                <div class="quote-icon mb-3">❝</div>
+                <div class="quote-icon mb-3" aria-hidden="true">❝</div>
                 <p class="review-text">“From chaos to clarity — that’s what Exionix brought us.”</p>
-                <p class="body">We had scattered branding and zero direction. Within weeks, they gave us a cohesive digital identity, built a fully responsive site, and even improved our social media visuals.</p>                
+                <p class="body">We had scattered branding and zero direction. Within weeks, they gave us a cohesive digital identity, built a fully responsive site, and even improved our social media visuals.</p>
                 <img src="{% static 'assets/images/client2.jpg' %}" alt="Areeba Khan" class="client-img mt-4 mb-2">
                 <h6 class="mb-0 fw-bold">Areeba Khan</h6>
                 <span class="text-muted small">Product Head, Savvico – 🇵🇰 Pakistan</span>
@@ -941,9 +946,9 @@
             </div>
 
             <!-- Slide 3 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 6">
               <div class="testimonial-slide p-4 bg-white rounded-4 shadow-sm text-center">
-                <div class="quote-icon mb-3">❝</div>
+                <div class="quote-icon mb-3" aria-hidden="true">❝</div>
                 <p class="review-text">“They turned our idea into a scalable digital product.”</p>
                 <p class="body">What I appreciated most was their technical depth. The developers at Exionix delivered clean, modular code that scaled effortlessly as our user base grew.</p>
                 <img src="{% static 'assets/images/client3.jpg' %}" alt="Johan Müller" class="client-img mt-4 mb-2">
@@ -953,9 +958,9 @@
             </div>
 
             <!-- Slide 4 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 4 of 6">
               <div class="testimonial-slide p-4 bg-white rounded-4 shadow-sm text-center">
-                <div class="quote-icon mb-3">❝</div>
+                <div class="quote-icon mb-3" aria-hidden="true">❝</div>
                 <p class="review-text">“Exionix delivers what others only promise.”</p>
                 <p class="body">After working with multiple agencies, I was skeptical. But Exionix proved different — they’re transparent, honest, and always a step ahead in quality and delivery.</p>
                 <img src="{% static 'assets/images/client4.jpg' %}" alt="Alina Khan" class="client-img mt-4 mb-2">
@@ -965,9 +970,9 @@
             </div>
 
             <!-- Slide 5 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 5 of 6">
               <div class="testimonial-slide p-4 bg-white rounded-4 shadow-sm text-center">
-                <div class="quote-icon mb-3">❝</div>
+                <div class="quote-icon mb-3" aria-hidden="true">❝</div>
                 <p class="review-text">“The team that listens, adapts, and builds fast.”</p>
                 <p class="body">Our health app was launched in record time without compromising design or functionality. Exionix Tech made sure every screen looked beautiful and every function worked flawlessly.</p>
                 <img src="{% static 'assets/images/client5.jpg' %}" alt="Isabelle Chen" class="client-img mt-4 mb-2">
@@ -977,9 +982,9 @@
             </div>
 
             <!-- Slide 6 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 6 of 6">
               <div class="testimonial-slide p-4 bg-white rounded-4 shadow-sm text-center">
-                <div class="quote-icon mb-3">❝</div>
+                <div class="quote-icon mb-3" aria-hidden="true">❝</div>
                 <p class="review-text">“They didn’t just build a website — they built trust.”</p>
                 <p class="body">When I approached Exionix Tech, I was unsure if my idea could be brought to life. But their team delivered with such clarity, design finesse, and attention to detail that it felt like magic in motion.</p>
                 <img src="{% static 'assets/images/client6.jpg' %}" alt="Maya Ellison" class="client-img mt-4 mb-2">
@@ -1000,14 +1005,14 @@
 </section>
 
 <!-- FAQ Section -->
-<section class="section faq-section py-5" id="faq">
+<section class="section faq-section py-5" id="faq" aria-label="Frequently Asked Questions">
   <div class="container">
     <div class="text-center mb-5">
       <h3 class="h3-section mb-4" style="color: var(--primary);">Frequently Asked Questions</h3>
       <p class="text-muted">We’ve got answers to common questions from our clients.</p>
     </div>
 
-    <div class="accordion" id="faqAccordion">
+    <div class="accordion" id="faqAccordion" aria-live="polite">
 
       <!-- FAQ 1 -->
       <div class="accordion-item">
@@ -1017,7 +1022,7 @@
             What services does Exionix Tech provide?
           </button>
         </h2>
-        <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-heading" data-bs-parent="#faqAccordion">
+        <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
             Exionix Tech offers end-to-end digital solutions including: Web & Mobile App Development, UI/UX Design, Digital Marketing & SEO, Business Strategy & Consulting, Data Analytics & Lead Generation, Graphic Design & Branding. Our goal is to build scalable, impactful digital products that drive growth.
           </div>
@@ -1032,9 +1037,9 @@
             What industries do you serve?
           </button>
         </h2>
-        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#faqAccordion">
+        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
-            We work across a wide range of industries, including: E-commerce, HealthTech, EdTech, Logistics & Supply Chain,Real Estate, FinTech. Whether you’re a startup or an established enterprise, we adapt to your domain needs.
+            We work across a wide range of industries, including: E-commerce, HealthTech, EdTech, Logistics & Supply Chain, Real Estate, FinTech. Whether you’re a startup or an established enterprise, we adapt to your domain needs.
           </div>
         </div>
       </div>
@@ -1047,7 +1052,7 @@
             Do you develop custom software?
           </button>
         </h2>
-        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading" data-bs-parent="#faqAccordion">
+        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
             Yes. We specialize in fully customized solutions tailored to your specific business objectives and workflows — from MVPs to enterprise-grade platforms.
           </div>
@@ -1062,7 +1067,7 @@
             What is your development process?
           </button>
         </h2>
-        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading" data-bs-parent="#faqAccordion">
+        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
             We follow an agile, milestone-based approach: Discovery & Requirement Gathering, UI/UX Design, Development & QA, Client Review & Revisions, Launch & Deployment , Ongoing Maintenance and Support
           </div>
@@ -1077,7 +1082,7 @@
             Do you work with international clients?
           </button>
         </h2>
-        <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-heading" data-bs-parent="#faqAccordion">
+        <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
             Absolutely. Exionix Tech serves clients worldwide, including the US, UK, Canada, UAE, and Europe. We ensure smooth collaboration through transparent communication and time zone management.
           </div>
@@ -1092,7 +1097,7 @@
             How do you ensure quality and timely delivery?
           </button>
         </h2>
-        <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6-heading" data-bs-parent="#faqAccordion">
+        <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
             We ensure quality through agile sprints, clear milestones, and regular check-ins. Our QA team performs thorough testing at every stage, while dedicated project managers ensure timely delivery with transparent communication.
           </div>
@@ -1107,7 +1112,7 @@
             Will my data and idea be secure?
           </button>
         </h2>
-        <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faq7-heading" data-bs-parent="#faqAccordion">
+        <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faq7-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
             Definitely. We’re open to signing Non-Disclosure Agreements (NDAs) and follow strict internal confidentiality protocols to protect your IP and business information.
           </div>
@@ -1122,7 +1127,7 @@
             How can I get started?
           </button>
         </h2>
-        <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faq8-heading" data-bs-parent="#faqAccordion">
+        <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faq8-heading" data-bs-parent="#faqAccordion" tabindex="0">
           <div class="accordion-body">
             Simply fill out our contact form or email us directly. Our team will schedule a discovery call within 24 hours to understand your needs and propose the best way forward.
           </div>
@@ -1134,17 +1139,23 @@
 </section>
 
 <!-- CALL TO ACTION SECTION -->
-<section class="section cta-section py-5">
+<section class="section cta-section py-5" role="region" aria-label="Call to action: Contact us">
   <div class="container text-center">
-    <h3 class="h3-section mb-4 cta-title" style="color:var(--primary)">Ready to Start Your Journey?</h3>
-    <p class="body cta-subtitle mb-4">Contact us today and let’s make your project a success!</p>
-    <a href="/contact" class="btn btn-outline-primary">
-      Get in Touch <span class="arrow">→</span>
+    <h3 class="h3-section mb-4 cta-title" style="color: var(--primary);">
+      Ready to Start Your Journey?
+    </h3>
+    <p class="body cta-subtitle mb-4">
+      Contact us today and let’s make your project a success!
+    </p>
+    <a href="/contact" class="btn btn-outline-primary" 
+       aria-label="Get in touch to start your project">
+      Get in Touch <span class="arrow" aria-hidden="true">→</span>
     </a>
   </div>
 </section>
 
 
+<!-- Contact SECTION -->
 <section class="section py-5">
   <div id="contact" class="contact-us section">
     <div class="container">

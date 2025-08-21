@@ -1,24 +1,24 @@
 {% load static %}
 
 <!-- ====== FOOTER START ====== -->
-<footer class="text-light pt-5 pb-3 ">
+<footer class="text-light pt-5 pb-3" aria-label="Footer section with company info, services, contact details, and newsletter subscription">
   <div class="container">
     <div class="row">
 
       <!-- Company Info -->
       <div class="col-md-3 mb-4">
         <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{% url 'home' %}">
-          <img src="{% static 'assets/images/exionix-logo.png' %}" alt="Logo">
+          <img src="{% static 'assets/images/exionix-logo.png' %}" alt="Exionix Tech Logo">
         </a>
         <p>Exionix Tech accelerates your business growth and transforms efficiency by unlocking the true power of technology through our expert custom software development solutions.</p>
         <!-- Social Icons -->
-        <div class="mt-3">
-          <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="text-light me-3"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="text-light me-3"><i class="fab fa-x-twitter"></i></a>
-          <a href="#" class="text-light me-3"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="text-light"><i class="fab fa-tiktok"></i></a>
+        <div class="mt-3" role="list" aria-label="Social media links">
+          <a href="#" class="text-light me-3" aria-label="Facebook" role="listitem"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" class="text-light me-3" aria-label="Instagram" role="listitem"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="text-light me-3" aria-label="LinkedIn" role="listitem"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="#" class="text-light me-3" aria-label="X Twitter" role="listitem"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" class="text-light me-3" aria-label="YouTube" role="listitem"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+          <a href="#" class="text-light" aria-label="TikTok" role="listitem"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
         </div>
       </div>
 
@@ -41,27 +41,26 @@
       <div class="col-md-3 mb-4">
         <h5 class="text-uppercase fw-bold">Get in Touch</h5>
         <ul class="list-unstyled">
-        <li>
-          <a href="mailto:info@exionixtech.com" style="text-decoration: none; color: inherit;">
-            <i class="fas fa-envelope me-2"></i> info@exionixtech.com
-          </a>
-        </li>
           <li>
-            <a href="https://wa.me/923318449074" target="_blank" style="text-decoration: none; color: inherit;">
-              <i class="fas fa-phone me-2"></i> +923318449074
-            </a>
-          </li>          
-          <li>
-            <a href="https://www.google.com/maps?q=Lahore,+Pakistan" target="_blank" style="text-decoration: none; color: inherit;">
-              <i class="fas fa-map-marker-alt me-2"></i> Lahore, Pakistan
+            <a href="mailto:info@exionixtech.com" style="text-decoration: none; color: inherit;">
+              <i class="fas fa-envelope me-2" aria-hidden="true"></i> <span>Email: info@exionixtech.com</span>
             </a>
           </li>
           <li>
-            <a href="https://www.google.com/maps?q=Atlanta,+Georgia,+USA" target="_blank" style="text-decoration: none; color: inherit;">
-              <i class="fas fa-map-marker-alt me-2"></i> Georgia Atlanta, US
+            <a href="https://wa.me/923318449074" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+              <i class="fas fa-phone me-2" aria-hidden="true"></i> <span>Phone: +923318449074</span>
             </a>
           </li>
-
+          <li>
+            <a href="https://www.google.com/maps?q=Lahore,+Pakistan" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+              <i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i> <span>Lahore, Pakistan</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.google.com/maps?q=Atlanta,+Georgia,+USA" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+              <i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i> <span>Georgia Atlanta, US</span>
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -69,11 +68,12 @@
       <div class="col-md-3 mb-4">
         <h5 class="text-uppercase fw-bold">Newsletter</h5>
         <p>Subscribe to get the latest news and updates.</p>
-        <form class="newsletter-form">
-            <div class="input-group">
-                <input type="email" name="email" class="form-control" placeholder="Your email address" required>
-                <button type="submit" aria-label="Subscribe" class="btn btn-outline-light">Subscribe</button>
-            </div>
+        <form class="newsletter-form" aria-label="Subscribe to newsletter">
+          <div class="input-group">
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" name="email" id="newsletter-email" class="form-control" placeholder="Your email address" required aria-required="true">
+            <button type="submit" aria-label="Subscribe to newsletter" class="btn btn-outline-light">Subscribe</button>
+          </div>
         </form>
       </div>
     </div>

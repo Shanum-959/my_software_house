@@ -3,44 +3,42 @@
 
 {% block content %}
 <!-- HERO SECTION -->
-<section class="hero position-relative d-flex align-items-center" style="background: url('{% static 'assets/images/blog.jpg' %}') center/cover no-repeat; height: 100vh;">
+<section class="hero position-relative d-flex align-items-center" style="background: url('{% static 'assets/images/blog.jpg' %}') center/cover no-repeat; height: 100vh;" role="img" aria-label="Blog banner">
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
   <div class="container position-relative text-start" style="z-index: 1; max-width: 700px;">
-    <!--
-    <h1 class="h1-hero text-white">Powering Ideas Into Digital Realities</h1>
-    <p class="body text-white my-4">We partner with ambitious startups and enterprises to turn bold visions into high-performance software products.</p>
-    <a href="{% url 'contact_form' %}" class="btn btn-primary">Start Conversation</a>
+    <!-- Hero text intentionally hidden -->
   </div>
-  -->
 </section>
 
-<section class="section blogs-section py-5" id="blogs">
+<section class="section blogs-section py-5" id="blogs" aria-labelledby="blogs-heading">
   <div class="container">
 
     <!-- Section Heading -->
     <div class="text-center mb-4">
-      <h3 class="h3-section mb-3" style="color: var(--primary);">Latest Blog Posts</h3>
+      <h3 id="blogs-heading" class="h3-section mb-3" style="color: var(--primary);">Latest Blog Posts</h3>
       <p class="text-muted">Read our latest insights, tips, and stories in tech, design, marketing, and innovation.</p>
     </div>
 
     <!-- Search & Filter Row -->
-    <div class="row align-items-center mb-4">
+    <div class="row align-items-center mb-4" role="search" aria-label="Blog search and category filter">
       <div class="col-md-6 mb-2">
         <div class="input-group">
-          <span class="input-group-text bg-white border-end-0">
+          <span class="input-group-text bg-white border-end-0" aria-hidden="true">
             <!-- SVG Search Icon -->
-            <svg width="15px" height="15px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <svg width="15px" height="15px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" role="img" aria-label="Search icon">
               <path fill="var(--primary)" fill-rule="evenodd" d="M4 9a5 5 0 1110 0A5 5 0 014 9zm5-7a7 7 0 104.2 12.6.999.999 0 00.093.107l3 3a1 1 0 001.414-1.414l-3-3a.999.999 0 00-.107-.093A7 7 0 009 2z"/>
             </svg>
           </span>
-          <form method="get" action="{% url 'blog:blog_home' %}" class="search-form">
-            <input type="text" class="form-control border-start-0"  name="q"placeholder="Search blog title, keywords..."value="{{ request.GET.q }}">
+          <form method="get" action="{% url 'blog:blog_home' %}" class="search-form" role="search">
+            <label for="search-input" class="visually-hidden">Search blog</label>
+            <input type="text" id="search-input" class="form-control border-start-0" name="q" placeholder="Search blog title, keywords..." value="{{ request.GET.q }}" aria-label="Search blog by title or keywords">
           </form>
         </div>
       </div>
       <div class="col-md-6 mb-2 text-md-end">
         <form method="get" action="{% url 'blog:blog_home' %}" class="search-form">
-          <select name="category" class="form-select w-auto d-inline-block" onchange="this.form.submit()">
+          <label for="category-select" class="visually-hidden">Select blog category</label>
+          <select id="category-select" name="category" class="form-select w-auto d-inline-block" onchange="this.form.submit()" aria-label="Filter blogs by category">
             <option value="">All Categories</option>
             {% for cat in categories %}
             <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>{{ cat }}</option>
@@ -49,25 +47,24 @@
         </form>
       </div>
     </div>
-    <!--Blog -->
 
+    <!-- Blog -->
     <div class="row g-4">
       {% for blog in blogs %}
         <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm border-0">
-
+          <div class="card h-100 shadow-sm border-0" role="article" aria-labelledby="blog-title-{{ blog.id }}">
             <!-- Blog Image -->
             {% if blog.image %}
-              <img src="{{ blog.image.url }}" class="card-img-top blog-image" alt="{{ blog.title }}">
+              <img src="{{ blog.image.url }}" class="card-img-top blog-image" alt="{{ blog.title|default:'Blog image' }}">
             {% endif %}
 
             <!-- Card Body -->
             <div class="card-body">
-              <h5 class="h5-small-title">{{ blog.title }}</h5>
+              <h5 id="blog-title-{{ blog.id }}" class="h5-small-title">{{ blog.title }}</h5>
               <p class="body text-muted">
                 {{ blog.content|truncatewords:25 }}
               </p>
-              <a href="{% url 'blog:blog_detail' blog.slug %}" class="btn btn-sm btn-primary">Read More</a>
+              <a href="{% url 'blog:blog_detail' blog.slug %}" class="btn btn-sm btn-primary" aria-label="Read more about {{ blog.title }}">Read More</a>
             </div>
           </div>
         </div>
@@ -78,7 +75,4 @@
 
   </div>
 </section>
-
-
-
 {% endblock %}
