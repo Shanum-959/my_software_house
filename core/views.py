@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
+from django.views.decorators.cache import cache_page
+@cache_page(60 * 15)
 def home_view(request):
     form = ContactForm()
 
     return render(request, 'home.html', {'form': form})
+
+@cache_page(60 * 15)
 def about_view(request):
     return render(request, 'about.html')
 

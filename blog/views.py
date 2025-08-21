@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import BlogPost
 from django.db.models import Q
+# from django.views.decorators.cache import cache_page
 
+# @cache_page(60 * 15)
 def blog_list(request):
     query = request.GET.get('q')
     category = request.GET.get('category')

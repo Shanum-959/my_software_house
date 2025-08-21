@@ -5,7 +5,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     author = models.CharField(max_length=100)
-    author_image = models.ImageField(upload_to='author_images/', blank=True, null=True)
+    author_image = models.ImageField(upload_to='author_images/', blank=True, null=True)    
     author_bio = models.TextField(blank=True, null=True)
 
     category = models.CharField(max_length=100, default='Uncategorized') 
