@@ -56,6 +56,26 @@
   transform: scale(1.1);
 }
 </style>
+
+<meta name="description" content="Exionix Tech offers innovative solutions in tech, design, and marketing. Explore our services and insights.">
+    <!-- Changed: Added meta keywords -->
+<meta name="keywords" content="exionix tech, technology, design, marketing, innovation, services">
+    <!-- Changed: Added canonical URL (dynamic based on request path) -->
+<link rel="canonical" href="https://yourdomain.com{{ request.path }}">
+    <!-- Changed: Added schema markup for website -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Exionix Tech",
+      "url": "https://yourdomain.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://yourdomain.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body>
     {% include "header.html" %}

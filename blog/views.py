@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import BlogPost
 from django.db.models import Q
+# from django.core.paginator import Paginator
 # from django.views.decorators.cache import cache_page
 
 # @cache_page(60 * 15)
@@ -19,10 +20,15 @@ def blog_list(request):
     if category:
         blogs = blogs.filter(category__iexact=category)
 
+    # paginator = Paginator(blogs, 10)  # 10 posts per page
+    # page_number = request.GET.get('page')
+    # page_obj = paginator.get_page(page_number)    
+
     categories = BlogPost.objects.values_list('category', flat=True).distinct()
 
     return render(request, 'blog/blog.html', {
         'blogs': blogs,
+        # 'page_obj': page_obj,
         'categories': categories,
     })
 

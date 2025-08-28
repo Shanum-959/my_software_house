@@ -15,3 +15,11 @@ DATABASES = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'mail.privateemail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'info@exionixtech.com'
+# EMAIL_HOST_PASSWORD = '***REMOVED***'  # Replace with app password if 2FA enabled
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
