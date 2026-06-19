@@ -21,5 +21,5 @@ DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 # EMAIL_USE_TLS = True
 # EMAIL_PORT = 587
 # EMAIL_HOST_USER = 'info@exionixtech.com'
-# EMAIL_HOST_PASSWORD = '***REMOVED***'  # Replace with app password if 2FA enabled
+# EMAIL_HOST_PASSWORD = 'Exionix@123'  # Replace with app password if 2FA enabled
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

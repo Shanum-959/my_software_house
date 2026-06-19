@@ -9,7 +9,7 @@ ALLOWED_HOSTS = ['yourdomain.com']  # Changed: Replace with your actual domain (
 # final newsletter ka liya (Assuming this is for CORS or email)
 # Changed: Enabled and configured CORS for trusted frontend
 CORS_ALLOWED_ORIGINS = [
-    "https://yourfrontend.com",  # ✅ Sirf tumhara trusted frontend (replace with actual URL)
+    "https://yourfrontend.com",  #  (replace with actual URL)
 ]
 
 # Changed: Added security headers
@@ -23,13 +23,13 @@ X_FRAME_OPTIONS = 'DENY'      # Prevent clickjacking
 
 # Changed: Email configuration for production (use environment variables)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.privateemail.com'
+EMAIL_HOST = 'mail.uuuemail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'info@exionixtech.com'
+EMAIL_HOST_USER = 'info@mytech.com'
 # Changed: Moved password to environment variable
 import os
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '***REMOVED***')  # Default for local test
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'mytech@123')  # Default for local test
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Changed: PostgreSQL configuration with environment variables
@@ -37,25 +37,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mysoftwarehouse',
-        'USER': 'postgres',            # Changed: Use env variable
-        'PASSWORD': os.environ.get('DB_PASSWORD', '***REMOVED***'),  # Default for local test
+        'USER': 'ishiwuc',            # Changed: Use env variable
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'abjscuwe'),  # Default for local test
         'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'PORT': os.environ.get('DB_PORT', 'jbiq'),
     }
 }
 
-# Optional: Add more production settings later
-# e.g., STATIC_ROOT, MEDIA_ROOT for serving static files
 
-# PostgreSQL for production
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'mysoftwarehouse',  
-#         'USER': 'postgres',            # or your PostgreSQL username
-#         'PASSWORD': '***REMOVED***',   # replace with your actual password
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-# Optional: add production CORS or security headers here later
