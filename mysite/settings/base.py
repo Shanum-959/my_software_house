@@ -78,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mysoftwarehouse',  
-        'USER': 'postgres',            # or your PostgreSQL username
-        'PASSWORD': '***REMOVED***',   # replace with your actual password
+        'USER': 'qjxbkuq',            # or your PostgreSQL username
+        'PASSWORD': 'bjuxiq',   # replace with your actual password
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': 'xkwjx',
     }
 }
 
@@ -117,7 +117,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "LOCATION": "redis://127.0.0.1:6379/",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
