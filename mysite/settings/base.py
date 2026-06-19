@@ -78,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mysoftwarehouse',  
-        'USER': 'qjxbkuq',            # or your PostgreSQL username
-        'PASSWORD': 'bjuxiq',   # replace with your actual password
+        'USER': 'postgres',            # or your PostgreSQL username
+        'PASSWORD': 'post990123',   # replace with your actual password
         'HOST': 'localhost',
-        'PORT': 'xkwjx',
+        'PORT': '5432',
     }
 }
 
