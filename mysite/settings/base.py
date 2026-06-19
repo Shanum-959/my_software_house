@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Move BASE_DIR up one more level so it points at your project root
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -78,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mysoftwarehouse',  
-        'USER': 'postgres',            # or your PostgreSQL username
-        'PASSWORD': 'post990123',   # replace with your actual password
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
         'HOST': 'localhost',
         'PORT': '5432',
     }
